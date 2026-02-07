@@ -31,6 +31,8 @@ export default function ProductVariantPicker(props: Props) {
     quantity: "",
   });
 
+  const [notes, setNotes] = useState("");
+
   const selectedPretty = useMemo(() => {
     const parts: string[] = [];
     for (const opt of options) {
@@ -46,19 +48,21 @@ export default function ProductVariantPicker(props: Props) {
     const details =
       selectedPretty.length > 0 ? selectedPretty.join(", ") : "Ainda não escolhi as variações.";
 
+    const notesLine = notes.trim() ? `Observações: ${notes.trim()}` : "";
+    const detailsPlus = [details, notesLine].filter(Boolean).join(" | ");
+
     const vars: Record<string, string> = {
       ...selected,
-      details,
+      details: detailsPlus,
       productTitle,
     };
 
     const rendered = applyTemplate(template, vars).trim();
 
-    // fallback se ficar vazio por algum motivo
     return rendered.length
       ? rendered
       : (whatsappFallbackMessage ?? `Olá! Quero orçamento de ${productTitle}.`);
-  }, [baseMessageTemplate, productTitle, selected, selectedPretty, whatsappFallbackMessage]);
+  }, [baseMessageTemplate, productTitle, selected, selectedPretty, whatsappFallbackMessage, notes]);
 
   const href = buildWhatsAppLink(message);
 
@@ -115,6 +119,23 @@ export default function ProductVariantPicker(props: Props) {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-6 rounded-2xl bg-white/60 p-5 ring-1 ring-black/5">
+        <label className="text-sm font-semibold text-[var(--cn-ink)]" htmlFor="notes">
+          Observações (opcional)
+        </label>
+        <p className="mt-1 text-xs text-black/60">
+          Ex.: “Tenho a arte pronta”, “preciso para sábado”, “quero igual ao modelo do Instagram”.
+        </p>
+        <textarea
+          id="notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          rows={3}
+          className="mt-3 w-full resize-none rounded-xl bg-[var(--cn-cream)]/30 p-3 text-sm text-[var(--cn-ink)] ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[var(--cn-sky)]"
+          placeholder="Escreva aqui…"
+        />
       </div>
 
       <div className="mt-6 rounded-2xl bg-[var(--cn-cream)]/40 p-4 ring-1 ring-black/5">
