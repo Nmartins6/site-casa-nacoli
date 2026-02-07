@@ -19,8 +19,14 @@ const { title, description, canonicalPath } = Astro.props;
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <Seo title={title} description={description} canonicalPath={canonicalPath} />
     <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="min-h-dvh bg-zinc-50 text-zinc-900">
+  <body class="min-h-dvh bg-[var(--cn-cream)] text-[var(--cn-ink)]">
     <Header />
     <main class="mx-auto max-w-6xl px-4 py-10">
       <slot />
