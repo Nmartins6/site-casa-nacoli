@@ -31,6 +31,17 @@ export default function ProductVariantPicker(props: Props) {
     quantity: "",
   });
 
+  const reset = () => {
+    setSelected({
+      color: "",
+      size: "",
+      paper: "",
+      finish: "",
+      quantity: "",
+    });
+    setNotes("");
+  };
+
   const [notes, setNotes] = useState("");
 
   const selectedPretty = useMemo(() => {
@@ -70,16 +81,17 @@ export default function ProductVariantPicker(props: Props) {
 
   return (
     <section className="mt-10 rounded-3xl border border-black/5 bg-white/40 p-6 md:p-8">
-      <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-        <div>
-          <h2 className="text-lg font-semibold tracking-tight text-[var(--cn-ink)]">Variações</h2>
-          <p className="mt-1 text-sm text-black/70">
-            Toque nas opções abaixo para montar a mensagem do orçamento.
-          </p>
-        </div>
+      <div className="mt-4 flex flex-col gap-2 md:mt-0 md:flex-row md:items-center">
+        <button
+          type="button"
+          onClick={reset}
+          className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white/60 px-5 py-3 text-sm font-medium text-[var(--cn-ink)] hover:bg-white"
+        >
+          Limpar
+        </button>
 
         <a
-          className="mt-4 inline-flex items-center justify-center rounded-xl bg-[var(--cn-terracotta)] px-5 py-3 text-sm font-medium text-white hover:brightness-95 md:mt-0"
+          className="inline-flex items-center justify-center rounded-xl bg-[var(--cn-terracotta)] px-5 py-3 text-sm font-medium text-white hover:brightness-95"
           href={href}
           target="_blank"
           rel="noreferrer"
