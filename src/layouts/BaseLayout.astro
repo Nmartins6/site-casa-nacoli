@@ -1,0 +1,30 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Seo from "@/components/Seo.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+};
+
+const { title, description, canonicalPath } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <Seo title={title} description={description} canonicalPath={canonicalPath} />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="min-h-dvh bg-zinc-50 text-zinc-900">
+    <Header />
+    <main class="mx-auto max-w-6xl px-4 py-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

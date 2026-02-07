@@ -1,0 +1,47 @@
+---
+import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
+
+const whatsappHref = buildWhatsAppLink(
+  "Olá! Vim pelo site da Casa Nacoli e gostaria de um orçamento.",
+);
+---
+
+<footer class="border-t border-zinc-200 bg-white">
+  <div class="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-3">
+    <div>
+      <div class="font-semibold text-zinc-900">Casa Nacoli</div>
+      <p class="mt-2 text-sm text-zinc-700">
+        Gráfica e personalizados em <strong>Lajeado/RS</strong>.
+      </p>
+    </div>
+
+    <div>
+      <div class="font-semibold text-zinc-900">Contato</div>
+      <p class="mt-2 text-sm text-zinc-700">
+        WhatsApp:
+        <a
+          class="underline hover:text-zinc-900"
+          href={whatsappHref}
+          target="_blank"
+          rel="noreferrer"
+        >
+          (51) 98962-3134
+        </a>
+      </p>
+    </div>
+
+    <div>
+      <div class="font-semibold text-zinc-900">Links</div>
+      <div class="mt-2 flex flex-col gap-2 text-sm">
+        <a class="text-zinc-700 hover:text-zinc-900" href="/catalogo">Catálogo</a>
+        <a class="text-zinc-700 hover:text-zinc-900" href="/contato">Contato</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-zinc-200 py-6">
+    <div class="mx-auto max-w-6xl px-4 text-xs text-zinc-500">
+      © {new Date().getFullYear()} Casa Nacoli — Lajeado/RS
+    </div>
+  </div>
+</footer>

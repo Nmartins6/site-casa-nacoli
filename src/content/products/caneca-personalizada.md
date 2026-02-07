@@ -1,0 +1,35 @@
+---
+title: "Caneca personalizada"
+summary: "Canecas personalizadas em sublimação — branca, preta e mágica. Ideal para presentes e divulgação."
+category: "personalizados"
+featured: true
+seoTitle: "Caneca personalizada em Lajeado/RS | Casa Nacoli"
+seoDescription: "Caneca personalizada branca, preta ou mágica. Produção em Lajeado/RS. Solicite um orçamento no WhatsApp."
+options:
+  - key: "color"
+    label: "Cor"
+    values: ["Branca", "Preta", "Mágica"]
+variants:
+  - sku: "CAN-BRANCA"
+    options: { color: "Branca" }
+    available: true
+  - sku: "CAN-PRETA"
+    options: { color: "Preta" }
+    available: true
+  - sku: "CAN-MAGICA"
+    options: { color: "Mágica" }
+    available: true
+whatsappMessage: "Olá! Quero orçamento de caneca personalizada. Cor: {{color}}."
+---
+
+## Caneca personalizada
+
+Produzimos canecas personalizadas com sublimação para presentear, divulgar sua marca ou criar lembranças.
+
+### Como funciona
+
+- Você envia a arte ou a gente te ajuda a ajustar
+- Produção local em **Lajeado/RS**
+- Entrega/retirada a combinar
+
+> Valores e prazos: sob consulta (dependendo de quantidade e arte).
