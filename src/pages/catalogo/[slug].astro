@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProductVariantPicker from "@/features/product/ProductVariantPicker";
 import { getCollection } from "astro:content";
 import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
 
@@ -36,7 +37,7 @@ const { Content } = await product.render();
 
   <div class="mt-6 flex flex-wrap gap-3">
     <a
-      class="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+      class="rounded-xl bg-[var(--cn-ink)] px-5 py-3 text-sm font-medium text-[var(--cn-cream)] hover:bg-black/80"
       href={whatsappHref}
       target="_blank"
       rel="noreferrer"
@@ -45,27 +46,12 @@ const { Content } = await product.render();
     </a>
   </div>
 
-  {
-    product.data.options.length ? (
-      <section class="mt-10">
-        <h2 class="text-xl font-semibold">Variações</h2>
-        <div class="mt-4 grid gap-4 md:grid-cols-2">
-          {product.data.options.map((opt) => (
-            <div class="rounded-lg border border-zinc-200 bg-white p-5">
-              <div class="font-medium">{opt.label}</div>
-              <div class="mt-2 flex flex-wrap gap-2">
-                {opt.values.map((v) => (
-                  <span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-800">
-                    {v}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    ) : null
-  }
+  <ProductVariantPicker
+    client:load
+    productTitle={product.data.title}
+    options={product.data.options}
+    baseMessageTemplate={product.data.whatsappMessage}
+  />
 
   <article class="prose prose-zinc mt-12 max-w-none">
     <Content />
