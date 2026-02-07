@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
+
+const whatsappHref = buildWhatsAppLink(
+  "Olá! Vim pelo site da Casa Nacoli e gostaria de um orçamento. Pode me ajudar?",
+);
+---
+
+<BaseLayout
+  title="Contato"
+  description="Contato Casa Nacoli em Lajeado/RS — orçamento e atendimento via WhatsApp."
+  canonicalPath="/contato"
+>
+  <h1 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">Contato</h1>
+
+  <div class="mt-6 grid gap-6 md:grid-cols-2">
+    <div class="rounded-2xl border border-black/5 bg-white/50 p-6">
+      <div class="text-sm font-semibold text-[var(--cn-ink)]">WhatsApp</div>
+      <p class="mt-2 text-sm text-black/70">
+        Atendimento e orçamento:
+        <a
+          class="font-medium text-[var(--cn-terracotta)] hover:underline"
+          href={whatsappHref}
+          target="_blank"
+          rel="noreferrer"
+        >
+          (51) 98962-3134
+        </a>
+      </p>
+
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noreferrer"
+        class="mt-5 inline-flex items-center justify-center rounded-xl bg-[var(--cn-terracotta)] px-5 py-3 text-sm font-medium text-white hover:brightness-95"
+      >
+        Abrir WhatsApp
+      </a>
+    </div>
+
+    <div class="rounded-2xl border border-black/5 bg-white/50 p-6">
+      <div class="text-sm font-semibold text-[var(--cn-ink)]">Para agilizar o orçamento</div>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-black/70">
+        <li>Qual produto/serviço você quer</li>
+        <li>Quantidade</li>
+        <li>Variações (cor/tamanho/papel/acabamento)</li>
+        <li>Prazo e se tem arte pronta</li>
+      </ul>
+
+      <p class="mt-4 text-sm text-black/60">
+        Se você não souber alguma dessas informações, sem problema — a gente define juntos.
+      </p>
+    </div>
+  </div>
+
+  <section class="mt-10 rounded-3xl border border-black/5 bg-white/40 p-8">
+    <h2 class="text-lg font-semibold tracking-tight text-[var(--cn-ink)]">Local</h2>
+    <p class="mt-2 text-sm text-black/70">
+      <strong>Lajeado/RS</strong>. Entrega/retirada a combinar.
+    </p>
+  </section>
+</BaseLayout>

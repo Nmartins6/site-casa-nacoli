@@ -32,6 +32,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "@tailwindcss/typography": "^0.5.19",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",

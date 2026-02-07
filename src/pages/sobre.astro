@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
+
+const whatsappHref = buildWhatsAppLink(
+  "Olá! Vim pelo site da Casa Nacoli e gostaria de um orçamento.",
+);
+---
+
+<BaseLayout
+  title="Sobre"
+  description="Conheça a Casa Nacoli — gráfica artesanal independente em Lajeado/RS."
+  canonicalPath="/sobre"
+>
+  <h1 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">Sobre</h1>
+
+  <div class="mt-6 max-w-3xl space-y-4 text-black/75">
+    <p>
+      A <strong>Casa Nacoli</strong> é uma gráfica artesanal independente em <strong
+        >Lajeado/RS</strong
+      >, focada em personalizados, impressos e materiais para marcas, eventos e presentes.
+    </p>
+    <p>
+      Aqui a gente cuida do processo do início ao fim: alinhamento do pedido, ajustes de arte quando
+      necessário, e produção com atenção aos detalhes.
+    </p>
+    <p>
+      Se você ainda não sabe exatamente o que precisa (papel, acabamento, tamanhos, quantidades),
+      chama no WhatsApp que eu te ajudo a escolher a melhor opção.
+    </p>
+  </div>
+
+  <div class="mt-10">
+    <a
+      href={whatsappHref}
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex items-center justify-center rounded-xl bg-[var(--cn-ink)] px-5 py-3 text-sm font-medium text-[var(--cn-cream)] hover:bg-black/80"
+    >
+      Falar no WhatsApp
+    </a>
+  </div>
+</BaseLayout>
