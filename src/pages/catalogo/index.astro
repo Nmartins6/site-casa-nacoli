@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
 import Button from "@/components/ui/Button.astro";
+import ProductCard from "@/features/product/ProductCard.astro";
 import { container } from "@/container";
 import { SITE } from "@/shared/config/site";
 
@@ -31,27 +32,7 @@ const description =
         <h2 class="text-2xl font-semibold tracking-tight text-[var(--cn-ink)]">Destaques</h2>
         <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((p) => (
-            <a
-              href={`/catalogo/${p.slug}`}
-              class="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition-all hover:-translate-y-1 hover:border-[var(--cn-ink)]/20 hover:shadow-md"
-            >
-              <div class="aspect-square w-full bg-[var(--cn-cream)]">
-                {p.coverImage ? (
-                  <img src={p.coverImage} alt={p.title} class="h-full w-full object-cover" />
-                ) : (
-                  <div class="flex h-full w-full items-center justify-center text-black/20">
-                    Sem imagem
-                  </div>
-                )}
-              </div>
-              <div class="flex flex-1 flex-col p-6">
-                <h3 class="text-lg font-semibold text-[var(--cn-ink)]">{p.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-black/70 line-clamp-2">{p.summary}</p>
-                <div class="mt-auto pt-4 text-sm font-medium text-[var(--cn-terracotta)] group-hover:underline">
-                  Ver detalhes
-                </div>
-              </div>
-            </a>
+            <ProductCard product={p} />
           ))}
         </div>
       </Section>
@@ -61,28 +42,7 @@ const description =
   <Section class={featured.length ? "pt-0" : ""}>
     <h2 class="text-2xl font-semibold tracking-tight text-[var(--cn-ink)]">Todos os produtos</h2>
     <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        all.map((p) => (
-          <a
-            href={`/catalogo/${p.slug}`}
-            class="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition-all hover:border-[var(--cn-ink)]/20 hover:shadow-sm"
-          >
-            <div class="aspect-[4/3] w-full bg-[var(--cn-cream)]">
-              {p.coverImage ? (
-                <img src={p.coverImage} alt={p.title} class="h-full w-full object-cover" />
-              ) : (
-                <div class="flex h-full w-full items-center justify-center text-black/20">
-                  Sem imagem
-                </div>
-              )}
-            </div>
-            <div class="flex flex-1 flex-col p-5">
-              <h3 class="font-semibold text-[var(--cn-ink)]">{p.title}</h3>
-              <p class="mt-1 text-sm text-black/70 line-clamp-2">{p.summary}</p>
-            </div>
-          </a>
-        ))
-      }
+      {all.map((p) => <ProductCard product={p} />)}
     </div>
   </Section>
 

@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
 import Button from "@/components/ui/Button.astro";
 import ProductVariantPicker from "@/features/product/ProductVariantPicker";
+import ProductGallery from "@/features/product/ProductGallery";
 import { container } from "@/container";
 import { SITE } from "@/shared/config/site";
 import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
@@ -58,34 +59,14 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 
     <div class="mt-8 grid gap-12 lg:grid-cols-2">
       <!-- Gallery Column -->
-      <div class="space-y-4">
-        <div
-          class="aspect-square overflow-hidden rounded-2xl bg-[var(--cn-cream)] ring-1 ring-black/5"
-        >
-          {
-            product.coverImage ? (
-              <img
-                src={product.coverImage}
-                alt={product.title}
-                class="h-full w-full object-cover"
-              />
-            ) : (
-              <div class="flex h-full w-full items-center justify-center text-black/20">
-                Imagem do Produto
-              </div>
-            )
-          }
-        </div>
-        <!-- Gallery Previews (Placeholder logic) -->
-        {
-          product.gallery && product.gallery.length > 0 && (
-            <div class="grid grid-cols-4 gap-4">
-              {product.gallery.map((img) => (
-                <div class="aspect-square rounded-xl bg-[var(--cn-cream)] ring-1 ring-black/5" />
-              ))}
-            </div>
-          )
-        }
+      <div>
+        <ProductGallery
+          client:load
+          images={[product.coverImage, ...(product.gallery || [])].filter(
+            (img): img is string => !!img,
+          )}
+          title={product.title}
+        />
       </div>
 
       <!-- Details Column -->

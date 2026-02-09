@@ -1,0 +1,54 @@
+---
+import type { Product } from "@/shared/domain/product";
+
+interface Props {
+  product: Product;
+  class?: string;
+}
+
+const { product, class: className } = Astro.props;
+
+const image1 = product.coverImage;
+const image2 = product.gallery?.[0]; // First image from gallery as hover alternative
+---
+
+<a
+  href={`/catalogo/${product.slug}`}
+  class:list={[
+    "group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition-all hover:-translate-y-1 hover:border-[var(--cn-ink)]/20 hover:shadow-md",
+    className,
+  ]}
+>
+  <div class="relative aspect-square w-full bg-[var(--cn-cream)]">
+    {/* Main Image */}
+    {
+      image1 ? (
+        <img
+          src={image1}
+          alt={product.title}
+          class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${image2 ? "group-hover:opacity-0" : ""}`}
+        />
+      ) : (
+        <div class="flex h-full w-full items-center justify-center text-black/20">Sem imagem</div>
+      )
+    }
+
+    {/* Hover Image (if exists) */}
+    {
+      image2 && (
+        <img
+          src={image2}
+          alt={`${product.title} - vista alternativa`}
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
+      )
+    }
+  </div>
+
+  <div class="flex flex-1 flex-col p-5">
+    <h3 class="font-medium text-[var(--cn-ink)] group-hover:text-[var(--cn-terracotta)]">
+      {product.title}
+    </h3>
+    <p class="mt-1 text-sm text-black/60 line-clamp-2">{product.summary}</p>
+  </div>
+</a>
