@@ -1,36 +1,91 @@
 ---
+import { SITE } from "@/shared/config/site";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Seo from "@/components/Seo.astro";
+import WhatsAppFloatingButton from "@/features/whatsapp/WhatsAppFloatingButton.astro";
+import "@/styles/global.css";
 
-type Props = {
-  title: string;
-  description: string;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
   canonicalPath?: string;
-};
+  type?: "website" | "article" | "product";
+}
 
-const { title, description, canonicalPath } = Astro.props;
+const {
+  title = SITE.title,
+  description = SITE.description,
+  image = "/og-image.jpg", // Placeholder
+  canonicalPath = "/",
+  type = "website",
+} = Astro.props;
+
+const canonicalURL = new URL(canonicalPath, SITE.url).toString();
+const resolvedImage = new URL(image, SITE.url).toString();
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <Seo title={title} description={description} canonicalPath={canonicalPath} />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Fonts: Quicksand (Variable) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- JSON-LD LocalBusiness -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: SITE.name,
+        image: resolvedImage,
+        telephone: SITE.contact.whatsapp,
+        email: SITE.contact.email,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: SITE.address.city,
+          addressRegion: SITE.address.state,
+          addressCountry: "BR",
+        },
+        url: SITE.url,
+        priceRange: "$$",
+        description: SITE.description,
+      })}
+    />
   </head>
-  <body class="min-h-dvh bg-[var(--cn-cream)] text-[var(--cn-ink)]">
+  <body
+    class="bg-[var(--cn-cream)] text-[var(--cn-ink)] font-sans antialiased flex flex-col min-h-screen"
+  >
     <Header />
-    <main class="mx-auto max-w-6xl px-4 py-10">
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />
+    <WhatsAppFloatingButton />
   </body>
 </html>

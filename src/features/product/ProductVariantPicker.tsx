@@ -6,13 +6,13 @@ type OptionKey = "color" | "size" | "paper" | "finish" | "quantity";
 type ProductOption = {
   key: OptionKey;
   label: string;
-  values: string[];
+  values?: string[];
 };
 
 type Props = {
   productTitle: string;
   options: ProductOption[];
-  baseMessageTemplate?: string; // pode conter {{color}}, {{size}}, etc.
+  baseMessageTemplate?: string;
   whatsappFallbackMessage?: string;
 };
 
@@ -31,6 +31,8 @@ export default function ProductVariantPicker(props: Props) {
     quantity: "",
   });
 
+  const [notes, setNotes] = useState("");
+
   const reset = () => {
     setSelected({
       color: "",
@@ -41,8 +43,6 @@ export default function ProductVariantPicker(props: Props) {
     });
     setNotes("");
   };
-
-  const [notes, setNotes] = useState("");
 
   const selectedPretty = useMemo(() => {
     const parts: string[] = [];
@@ -55,10 +55,8 @@ export default function ProductVariantPicker(props: Props) {
 
   const message = useMemo(() => {
     const template = baseMessageTemplate ?? `Olá! Quero orçamento de ${productTitle}. {{details}}`;
-
     const details =
       selectedPretty.length > 0 ? selectedPretty.join(", ") : "Ainda não escolhi as variações.";
-
     const notesLine = notes.trim() ? `Observações: ${notes.trim()}` : "";
     const detailsPlus = [details, notesLine].filter(Boolean).join(" | ");
 
@@ -69,7 +67,6 @@ export default function ProductVariantPicker(props: Props) {
     };
 
     const rendered = applyTemplate(template, vars).trim();
-
     return rendered.length
       ? rendered
       : (whatsappFallbackMessage ?? `Olá! Quero orçamento de ${productTitle}.`);
@@ -77,35 +74,33 @@ export default function ProductVariantPicker(props: Props) {
 
   const href = buildWhatsAppLink(message);
 
-  if (!options?.length) return null;
-
-  return (
-    <section className="mt-10 rounded-3xl border border-black/5 bg-white/40 p-6 md:p-8">
-      <div className="mt-4 flex flex-col gap-2 md:mt-0 md:flex-row md:items-center">
-        <button
-          type="button"
-          onClick={reset}
-          className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white/60 px-5 py-3 text-sm font-medium text-[var(--cn-ink)] hover:bg-white"
-        >
-          Limpar
-        </button>
-
+  // If no options, just show a simpler CTA button (handled by parent mostly, but safety check)
+  if (!options || options.length === 0) {
+    return (
+      <div className="mt-8">
         <a
-          className="inline-flex items-center justify-center rounded-xl bg-[var(--cn-terracotta)] px-5 py-3 text-sm font-medium text-white hover:brightness-95"
           href={href}
           target="_blank"
           rel="noreferrer"
+          className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--cn-ink)] px-8 text-base font-medium text-[var(--cn-cream)] transition-colors hover:bg-black/80"
         >
           Pedir orçamento no WhatsApp
         </a>
       </div>
+    );
+  }
 
-      <div className="mt-6 grid gap-5 md:grid-cols-2">
+  return (
+    <div className="rounded-2xl border border-black/5 bg-white/50 p-6 shadow-sm ring-1 ring-black/5 md:p-8">
+      <h3 className="font-semibold text-[var(--cn-ink)]">Personalize seu pedido</h3>
+      <p className="mt-1 text-sm text-black/60">Selecione as opções para gerar o orçamento.</p>
+
+      <div className="mt-6 space-y-6">
         {options.map((opt) => (
-          <div key={opt.key} className="rounded-2xl bg-white/60 p-5 ring-1 ring-black/5">
-            <div className="text-sm font-semibold text-[var(--cn-ink)]">{opt.label}</div>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {opt.values.map((v) => {
+          <div key={opt.key}>
+            <div className="text-sm font-medium text-[var(--cn-ink)]">{opt.label}:</div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {opt.values?.map((v) => {
                 const isActive = selected[opt.key] === v;
                 return (
                   <button
@@ -118,10 +113,10 @@ export default function ProductVariantPicker(props: Props) {
                       }))
                     }
                     className={[
-                      "rounded-full px-3 py-1 text-xs ring-1 transition",
+                      "rounded-lg px-3 py-2 text-sm font-medium transition-all",
                       isActive
-                        ? "bg-[var(--cn-ink)] text-[var(--cn-cream)] ring-black/10"
-                        : "bg-[var(--cn-cream)]/40 text-[var(--cn-ink)] ring-black/10 hover:bg-white",
+                        ? "bg-[var(--cn-ink)] text-[var(--cn-cream)] shadow-sm"
+                        : "bg-white text-[var(--cn-ink)] ring-1 ring-black/10 hover:bg-[var(--cn-cream)] hover:ring-[var(--cn-ink)]/20",
                     ].join(" ")}
                   >
                     {v}
@@ -131,29 +126,40 @@ export default function ProductVariantPicker(props: Props) {
             </div>
           </div>
         ))}
+
+        <div>
+          <label className="text-sm font-medium text-[var(--cn-ink)]" htmlFor="notes">
+            Observações (opcional)
+          </label>
+          <textarea
+            id="notes"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            rows={3}
+            className="mt-2 w-full resize-none rounded-xl border-0 bg-white p-3 text-sm text-[var(--cn-ink)] ring-1 ring-black/10 placeholder:text-black/40 focus:ring-2 focus:ring-[var(--cn-ink)]"
+            placeholder="Ex.: Preciso para o dia 20, quero adicionar logo..."
+          />
+        </div>
       </div>
 
-      <div className="mt-6 rounded-2xl bg-white/60 p-5 ring-1 ring-black/5">
-        <label className="text-sm font-semibold text-[var(--cn-ink)]" htmlFor="notes">
-          Observações (opcional)
-        </label>
-        <p className="mt-1 text-xs text-black/60">
-          Ex.: “Tenho a arte pronta”, “preciso para sábado”, “quero igual ao modelo do Instagram”.
-        </p>
-        <textarea
-          id="notes"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          rows={3}
-          className="mt-3 w-full resize-none rounded-xl bg-[var(--cn-cream)]/30 p-3 text-sm text-[var(--cn-ink)] ring-1 ring-black/10 outline-none focus:ring-2 focus:ring-[var(--cn-sky)]"
-          placeholder="Escreva aqui…"
-        />
-      </div>
+      <div className="mt-8 flex flex-col gap-3 pt-6 border-t border-black/5">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--cn-ink)] px-6 text-base font-medium text-[var(--cn-cream)] transition-all hover:bg-black/80 hover:scale-[1.02]"
+        >
+          Pedir orçamento no WhatsApp
+        </a>
 
-      <div className="mt-6 rounded-2xl bg-[var(--cn-cream)]/40 p-4 ring-1 ring-black/5">
-        <div className="text-xs font-semibold text-black/60">Mensagem:</div>
-        <div className="mt-2 text-sm text-black/75">{message}</div>
+        <button
+          type="button"
+          onClick={reset}
+          className="text-sm text-black/50 hover:text-[var(--cn-terracotta)] transition-colors"
+        >
+          Limpar escolhas
+        </button>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+  id?: string;
+  theme?: "default" | "cream" | "white";
+}
+
+const { class: className, id, theme = "default" } = Astro.props;
+
+const themeClasses = {
+  default: "bg-transparent", // inherents body bg
+  cream: "bg-[var(--cn-cream)]",
+  white: "bg-white",
+};
+
+const classes = [
+  "py-16 md:py-24", // Consistent vertical spacing
+  themeClasses[theme],
+  className,
+].join(" ");
+---
+
+<section id={id} class={classes}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <slot />
+  </div>
+</section>

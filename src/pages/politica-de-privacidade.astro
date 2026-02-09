@@ -1,0 +1,57 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/ui/Section.astro";
+import { SITE } from "@/shared/config/site";
+
+const title = `Política de Privacidade | ${SITE.name}`;
+const description = "Política de privacidade e tratamento de dados da Casa Nacoli.";
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/politica-de-privacidade">
+  <Section>
+    <div class="mx-auto max-w-3xl">
+      <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">Política de Privacidade</h1>
+      <p class="mt-4 text-sm text-black/60">
+        Última atualização: {new Date().toLocaleDateString("pt-BR")}
+      </p>
+
+      <div class="prose prose-zinc mt-10 max-w-none text-black/80">
+        <p>
+          A sua privacidade é importante para nós. É política da <strong>{SITE.name}</strong> respeitar
+          a sua privacidade em relação a qualquer informação sua que possamos coletar no site <a
+            href={SITE.url}>{SITE.name}</a
+          >, e outros sites que possuímos e operamos.
+        </p>
+        <p>
+          Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe
+          fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e
+          consentimento. Também informamos por que estamos coletando e como será usado.
+        </p>
+        <p>
+          Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço
+          solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis
+          ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não
+          autorizados.
+        </p>
+        <p>
+          Não compartilhamos informações de identificação pessoal publicamente ou com terceiros,
+          exceto quando exigido por lei.
+        </p>
+        <p>
+          O nosso site pode ter links para sites externos que não são operados por nós. Esteja
+          ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos
+          aceitar responsabilidade por suas respectivas políticas de privacidade.
+        </p>
+        <p>
+          Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que
+          talvez não possamos fornecer alguns dos serviços desejados.
+        </p>
+        <p>
+          O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno
+          de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com
+          dados do usuário e informações pessoais, entre em contacto conosco.
+        </p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
