@@ -1,0 +1,39 @@
+---
+import Button from "@/components/ui/Button.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<form
+  class:list={["grid gap-6", className]}
+  onsubmit="event.preventDefault(); const form = event.target; const data = new FormData(form); const msg = `Olá! Me chamo ${data.get('name')}. Gostaria de falar sobre: ${data.get('message')}`; const url = `https://wa.me/5551999999999?text=${encodeURIComponent(msg)}`; window.open(url, '_blank');"
+>
+  <div>
+    <label for="name" class="block text-sm font-medium text-[var(--cn-ink)]">Seu nome</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      class="mt-2 block w-full rounded-xl border-black/10 bg-white px-4 py-3 text-[var(--cn-ink)] placeholder:text-black/40 focus:border-[var(--cn-terracotta)] focus:ring-[var(--cn-terracotta)]"
+      placeholder="Como podemos te chamar?"
+    />
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-[var(--cn-ink)]">Sua ideia</label>
+    <textarea
+      name="message"
+      id="message"
+      rows="4"
+      required
+      class="mt-2 block w-full rounded-xl border-black/10 bg-white px-4 py-3 text-[var(--cn-ink)] placeholder:text-black/40 focus:border-[var(--cn-terracotta)] focus:ring-[var(--cn-terracotta)]"
+      placeholder="Conte um pouco sobre o que você precisa..."></textarea>
+  </div>
+
+  <Button type="submit" size="lg" class="w-full"> Enviar no WhatsApp </Button>
+</form>
