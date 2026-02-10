@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 
 const optionSchema = z.object({
   key: z
-    .enum(["color", "size", "paper", "finish", "quantity"])
+    .enum(["color", "size", "paper", "finish", "quantity", "type", "material", "format"])
     .describe("Tipo da opção de variação"),
   label: z.string().min(1).describe("Nome amigável para exibir no site"),
   values: z.array(z.string().min(1)).min(1),
@@ -16,6 +16,9 @@ const variantSchema = z.object({
     paper: z.string().min(1).optional(),
     finish: z.string().min(1).optional(),
     quantity: z.string().min(1).optional(),
+    type: z.string().min(1).optional(),
+    material: z.string().min(1).optional(),
+    format: z.string().min(1).optional(),
   }),
   // preço pode ser opcional no MVP (muito produto é "sob consulta")
   priceCents: z.number().int().nonnegative().optional(),
@@ -28,7 +31,16 @@ const products = defineCollection({
     title: z.string().min(1),
     summary: z.string().min(1),
     category: z
-      .enum(["personalizados", "impressos", "identidade-visual", "sites", "decoracao"])
+      .enum([
+        "personalizados",
+        "impressos",
+        "identidade-visual",
+        "sites",
+        "decoracao",
+        "brindes",
+        "fotografia",
+        "servicos",
+      ])
       .default("personalizados"),
     featured: z.boolean().default(false),
 
