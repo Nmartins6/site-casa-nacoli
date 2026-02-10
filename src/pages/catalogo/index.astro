@@ -26,21 +26,7 @@ const description =
     </div>
   </Section>
 
-  {
-    featured.length > 0 && (
-      <Section>
-        <h2 class="text-2xl font-semibold tracking-tight text-[var(--cn-ink)]">Destaques</h2>
-        <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p) => (
-            <ProductCard product={p} />
-          ))}
-        </div>
-      </Section>
-    )
-  }
-
-  <Section class={featured.length ? "pt-0" : ""}>
-    <h2 class="text-2xl font-semibold tracking-tight text-[var(--cn-ink)]">Todos os produtos</h2>
+  <Section>
     <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {all.map((p) => <ProductCard product={p} />)}
     </div>
