@@ -18,6 +18,18 @@ export default function ProductGallery({ images, title }: Props) {
     );
   }
 
+  // Ensure unique images to prevent key duplication issues (though index key handles it)
+  // and filter out empty strings
+  const validImages = images.filter(Boolean);
+
+  if (validImages.length === 0) {
+    return (
+      <div className="aspect-square w-full rounded-2xl bg-[#FAEEDE] flex items-center justify-center text-[#494238]/20 ring-1 ring-black/5">
+        Sem imagem
+      </div>
+    );
+  }
+
   const scrollTo = (index: number) => {
     setSelectedIndex(index);
     if (scrollContainerRef.current) {
@@ -49,7 +61,7 @@ export default function ProductGallery({ images, title }: Props) {
           className="flex h-full w-full snap-x snap-mandatory overflow-x-auto scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {images.map((src, i) => (
+          {validImages.map((src, i) => (
             <div key={i} className="flex-none w-full h-full snap-center">
               <img
                 src={src}
@@ -61,7 +73,7 @@ export default function ProductGallery({ images, title }: Props) {
         </div>
 
         {/* Navigation Arrows (visible on hover/desktop) */}
-        {images.length > 1 && (
+        {validImages.length > 1 && (
           <>
             <button
               onClick={() => scrollTo(Math.max(0, selectedIndex - 1))}
@@ -80,8 +92,8 @@ export default function ProductGallery({ images, title }: Props) {
               </svg>
             </button>
             <button
-              onClick={() => scrollTo(Math.min(images.length - 1, selectedIndex + 1))}
-              disabled={selectedIndex === images.length - 1}
+              onClick={() => scrollTo(Math.min(validImages.length - 1, selectedIndex + 1))}
+              disabled={selectedIndex === validImages.length - 1}
               className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-[#494238] shadow-sm backdrop-blur transition hover:bg-white disabled:opacity-0"
               aria-label="Próxima imagem"
             >
@@ -100,9 +112,9 @@ export default function ProductGallery({ images, title }: Props) {
       </div>
 
       {/* Thumbnails */}
-      {images.length > 1 && (
+      {validImages.length > 1 && (
         <div className="grid grid-cols-5 gap-3">
-          {images.map((src, i) => (
+          {validImages.map((src, i) => (
             <button
               key={i}
               onClick={() => scrollTo(i)}

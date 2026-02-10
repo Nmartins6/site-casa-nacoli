@@ -5,6 +5,12 @@ category: "personalizados"
 featured: true
 seoTitle: "Caneca personalizada em Lajeado/RS | Casa Nacoli"
 seoDescription: "Caneca personalizada branca, preta ou mágica. Produção em Lajeado/RS. Solicite um orçamento no WhatsApp."
+coverImage: "/images/products/caneca-1.png"
+gallery:
+  - "/images/products/caneca-2.png"
+  - "/images/products/caneca-3.png"
+  - "/images/products/caneca-4.png"
+  - "/images/products/caneca-5.png"
 options:
   - key: "color"
     label: "Cor"

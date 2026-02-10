@@ -21,7 +21,10 @@ function applyTemplate(template: string, vars: Record<string, string>) {
 }
 
 export default function ProductVariantPicker(props: Props) {
-  const { productTitle, options, baseMessageTemplate, whatsappFallbackMessage } = props;
+  const { productTitle, options = [], baseMessageTemplate, whatsappFallbackMessage } = props;
+
+  // DEBUG: Visual check
+  // if (true) return <pre className="bg-white p-4 border border-red-500 text-xs">{JSON.stringify(options, null, 2)}</pre>;
 
   const [selected, setSelected] = useState<Record<OptionKey, string>>({
     color: "",

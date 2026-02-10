@@ -6,7 +6,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://casanacoli.com.br", // Placeholder URL for sitemap generation
-  integrations: [react(), sitemap()],
+  integrations: [
+    react({
+      experimentalReactChildren: true,
+    }),
+    sitemap(),
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
