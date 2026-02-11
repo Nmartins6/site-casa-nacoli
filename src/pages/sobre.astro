@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
+import PageHeader from "@/components/PageHeader.astro";
 import Button from "@/components/ui/Button.astro";
 import { SITE } from "@/shared/config/site";
 
@@ -10,15 +11,7 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/sobre">
-  <Section theme="cream" class="pt-24 pb-12 text-center md:pt-32">
-    <h1 class="text-4xl font-bold tracking-tight text-[var(--cn-ink)] md:text-5xl lg:text-6xl">
-      Nossa História
-    </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg text-black/70">
-      A Casa Nacoli nasceu do desejo de trazer alma e personalidade para o papel. Acreditamos que
-      cada impresso carrega uma história e merece ser tratado como único.
-    </p>
-  </Section>
+  <PageHeader title={title} description={description} />
 
   <Section class="grid gap-12 md:grid-cols-2 md:items-center">
     <div>

@@ -1,0 +1,41 @@
+---
+import Section from "@/components/ui/Section.astro";
+import Button from "@/components/ui/Button.astro";
+import ProductCard from "@/features/product/ProductCard.astro";
+import { container } from "@/container";
+
+const featuredProducts = await container.productRepository.getFeatured();
+---
+
+{
+  featuredProducts.length > 0 && (
+    <Section>
+      <div class="flex items-end justify-between">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
+            Nossos Destaques
+          </h2>
+          <p class="mt-2 text-black/60">Alguns dos itens favoritos dos nossos clientes.</p>
+        </div>
+        <a
+          href="/catalogo"
+          class="hidden text-sm font-medium text-[var(--cn-terracotta)] hover:underline sm:block"
+        >
+          Ver tudo →
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredProducts.map((p) => (
+          <ProductCard product={p} class="group block" />
+        ))}
+      </div>
+
+      <div class="mt-8 text-center sm:hidden">
+        <Button href="/catalogo" variant="outline">
+          Ver catálogo completo
+        </Button>
+      </div>
+    </Section>
+  )
+}

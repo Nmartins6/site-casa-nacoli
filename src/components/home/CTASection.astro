@@ -1,0 +1,28 @@
+---
+import Section from "@/components/ui/Section.astro";
+import ContactForm from "@/components/ContactForm.astro";
+---
+
+<Section class="pb-24 md:pb-32">
+  <div
+    class="mx-auto max-w-5xl rounded-3xl bg-[var(--cn-ink)] p-8 text-[var(--cn-cream)] md:p-12 lg:grid lg:grid-cols-2 lg:gap-16"
+  >
+    <div class="flex flex-col justify-center">
+      <h2 class="text-3xl font-semibold md:text-4xl">Tire sua ideia do papel</h2>
+      <p class="mt-4 text-white/80 text-lg leading-relaxed">
+        Tem um projeto em mente? Preencha o formulário e vamos conversar. Se preferir, nos chame
+        direto no WhatsApp.
+      </p>
+      <div class="mt-8 hidden lg:block">
+        <div class="flex items-center gap-3 text-white/60 text-sm">
+          <span class="block size-2 rounded-full bg-green-500 animate-pulse"></span>
+          Respondemos rapidinho em horário comercial
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 lg:mt-0 rounded-2xl bg-white p-6 md:p-8">
+      <ContactForm />
+    </div>
+  </div>
+</Section>

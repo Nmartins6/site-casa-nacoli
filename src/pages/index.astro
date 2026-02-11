@@ -1,37 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Section from "@/components/ui/Section.astro";
-import Button from "@/components/ui/Button.astro";
-import ProductCard from "@/features/product/ProductCard.astro";
-import { container } from "@/container";
-import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
-
-import ContactForm from "@/components/ContactForm.astro";
-
-const featuredProducts = await container.productRepository.getFeatured();
-
-const whatsappHref = buildWhatsAppLink(
-  "Olá! Vim pelo site da Casa Nacoli e gostaria de um orçamento.",
-);
-
-const faqs = [
-  {
-    q: "Qual o prazo de produção?",
-    a: "O prazo varia conforme o produto e a quantidade. Em média, personalizados levam de 2 a 5 dias úteis após aprovação da arte.",
-  },
-  {
-    q: "Vocês fazem a arte?",
-    a: "Sim! Podemos criar a arte do zero ou ajustar a que você já tem. Os valores de criação são combinados à parte.",
-  },
-  {
-    q: "Qual a quantidade mínima?",
-    a: "Depende do item. Muitos personalizados (como canecas) fazemos a partir de 1 unidade. Impressos gráficos geralmente têm mínimos de 50 ou 100.",
-  },
-  {
-    q: "Enviam para outras cidades?",
-    a: "Sim, enviamos via Correios ou transportadora. O frete é calculado conforme o CEP.",
-  },
-];
+import Hero from "@/components/home/Hero.astro";
+import FeaturedProducts from "@/components/home/FeaturedProducts.astro";
+import FAQ from "@/components/home/FAQ.astro";
+import CTASection from "@/components/home/CTASection.astro";
 ---
 
 <BaseLayout
@@ -39,122 +11,8 @@ const faqs = [
   description="Gráfica artesanal independente em Lajeado/RS. Personalizados, impressos, identidade visual e sites. Peça seu orçamento no WhatsApp."
   canonicalPath="/"
 >
-  <!-- Hero Section -->
-  <Section class="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-24">
-    <!-- Background Image -->
-    <div
-      class="absolute inset-0 -z-20 h-full w-full bg-[url('/images/hero-bg.png')] bg-cover bg-center"
-    >
-    </div>
-    <div class="absolute inset-0 -z-10 h-full w-full bg-white/60 backdrop-blur-sm"></div>
-
-    <!-- Decorative Blurs -->
-    <div
-      class="absolute right-0 top-0 -z-10 size-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-[var(--cn-sky)]/30 blur-3xl"
-    >
-    </div>
-    <div
-      class="absolute bottom-0 left-0 -z-10 size-96 -translate-x-1/3 translate-y-1/3 rounded-full bg-[var(--cn-mustard)]/20 blur-3xl"
-    >
-    </div>
-
-    <div class="mx-auto max-w-4xl text-center">
-      <div
-        class="mb-6 inline-flex items-center rounded-full border border-[var(--cn-ink)]/10 bg-white/50 px-3 py-1 text-sm font-medium text-[var(--cn-ink)] backdrop-blur-sm"
-      >
-        <span class="mr-2 inline-block size-2 rounded-full bg-[var(--cn-terracotta)]"></span>
-        Lajeado/RS
-      </div>
-      <h1 class="text-5xl font-bold tracking-tight text-[var(--cn-ink)] md:text-6xl lg:text-7xl">
-        Gráfica artesanal <br class="hidden md:block" /> independente.
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-black/70 md:text-xl">
-        Personalizados, impressos e design com alma. <br class="hidden md:block" />
-        Transformamos suas ideias em papel e pixel com cuidado artesanal.
-      </p>
-
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button href={whatsappHref} target="_blank" size="lg"> Pedir orçamento </Button>
-        <Button href="/catalogo" variant="outline" size="lg"> Ver catálogo </Button>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Featured Products -->
-  {
-    featuredProducts.length > 0 && (
-      <Section>
-        <div class="flex items-end justify-between">
-          <div>
-            <h2 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
-              Nossos Destaques
-            </h2>
-            <p class="mt-2 text-black/60">Alguns dos itens favoritos dos nossos clientes.</p>
-          </div>
-          <a
-            href="/catalogo"
-            class="hidden text-sm font-medium text-[var(--cn-terracotta)] hover:underline sm:block"
-          >
-            Ver tudo →
-          </a>
-        </div>
-
-        <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts.map((p) => (
-            <ProductCard product={p} class="group block" />
-          ))}
-        </div>
-
-        <div class="mt-8 text-center sm:hidden">
-          <Button href="/catalogo" variant="outline">
-            Ver catálogo completo
-          </Button>
-        </div>
-      </Section>
-    )
-  }
-
-  <!-- FAQ Section -->
-  <Section theme="cream">
-    <div class="mx-auto max-w-3xl">
-      <h2 class="text-center text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
-        Dúvidas Frequentes
-      </h2>
-      <div class="mt-12 space-y-6">
-        {
-          faqs.map((faq) => (
-            <div class="rounded-2xl border border-black/5 bg-white p-6">
-              <h3 class="font-medium text-[var(--cn-ink)]">{faq.q}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-black/70">{faq.a}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </Section>
-
-  <!-- CTA Final & Contact Form -->
-  <Section class="pb-24 md:pb-32">
-    <div
-      class="mx-auto max-w-5xl rounded-3xl bg-[var(--cn-ink)] p-8 text-[var(--cn-cream)] md:p-12 lg:grid lg:grid-cols-2 lg:gap-16"
-    >
-      <div class="flex flex-col justify-center">
-        <h2 class="text-3xl font-semibold md:text-4xl">Tire sua ideia do papel</h2>
-        <p class="mt-4 text-white/80 text-lg leading-relaxed">
-          Tem um projeto em mente? Preencha o formulário e vamos conversar. Se preferir, nos chame
-          direto no WhatsApp.
-        </p>
-        <div class="mt-8 hidden lg:block">
-          <div class="flex items-center gap-3 text-white/60 text-sm">
-            <span class="block size-2 rounded-full bg-green-500 animate-pulse"></span>
-            Respondemos rapidinho em horário comercial
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-10 lg:mt-0 rounded-2xl bg-white p-6 md:p-8">
-        <ContactForm />
-      </div>
-    </div>
-  </Section>
+  <Hero />
+  <FeaturedProducts />
+  <FAQ />
+  <CTASection />
 </BaseLayout>

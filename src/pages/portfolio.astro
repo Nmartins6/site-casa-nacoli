@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
+import PageHeader from "@/components/PageHeader.astro";
 import Button from "@/components/ui/Button.astro";
 import { SITE } from "@/shared/config/site";
 
@@ -9,47 +10,40 @@ const description = "Veja nossos trabalhos recentes de design e impressão artes
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/portfolio">
-  <Section class="pt-24 md:pt-32">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-[var(--cn-ink)] md:text-5xl">
-        Nosso Trabalho
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-black/70">
-        Uma seleção de projetos que amamos criar. Identidades visuais, convites e papelaria que
-        contam histórias.
-      </p>
-    </div>
+  <PageHeader
+    title="Nosso Trabalho"
+    description="Uma seleção de projetos que amamos criar. Identidades visuais, convites e papelaria que contam histórias."
+  />
 
-    <!-- Gallery Grid Placeholder -->
-    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        Array.from({ length: 9 }).map((_, i) => (
-          <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5">
-            <div class="flex h-full w-full items-center justify-center text-black/20">
-              <span class="sr-only">Projeto {i + 1}</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-              >
-                <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-40,88a40,40,0,0,1-40,40H40v-4.69l32-32,32,32a8,8,0,0,0,11.31,0L144,134.63Zm40,72H150.63l-45.32-45.31a8,8,0,0,0-11.31,0L40,209.37V200a24,24,0,0,1,24-24h72a24,24,0,0,0,24-24V144a24,24,0,0,1,56.8-2.61ZM56,40a24,24,0,0,1,24,24v8a24,24,0,0,0,24,24h8a24,24,0,0,1,24,24v64h64V56H56ZM96,64a8,8,0,0,0-8-8H64v24a8,8,0,0,0,8,8h24V64Z" />
-              </svg>
-            </div>
-            <div class="absolute inset-0 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
-              <span class="font-medium text-white">Projeto Exemplo {i + 1}</span>
-            </div>
+  <!-- Gallery Grid Placeholder -->
+  <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      Array.from({ length: 9 }).map((_, i) => (
+        <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5">
+          <div class="flex h-full w-full items-center justify-center text-black/20">
+            <span class="sr-only">Projeto {i + 1}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              viewBox="0 0 256 256"
+            >
+              <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-40,88a40,40,0,0,1-40,40H40v-4.69l32-32,32,32a8,8,0,0,0,11.31,0L144,134.63Zm40,72H150.63l-45.32-45.31a8,8,0,0,0-11.31,0L40,209.37V200a24,24,0,0,1,24-24h72a24,24,0,0,0,24-24V144a24,24,0,0,1,56.8-2.61ZM56,40a24,24,0,0,1,24,24v8a24,24,0,0,0,24,24h8a24,24,0,0,1,24,24v64h64V56H56ZM96,64a8,8,0,0,0-8-8H64v24a8,8,0,0,0,8,8h24V64Z" />
+            </svg>
           </div>
-        ))
-      }
-    </div>
+          <div class="absolute inset-0 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
+            <span class="font-medium text-white">Projeto Exemplo {i + 1}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 
-    <div class="mt-16 text-center">
-      <p class="mb-6 text-black/70">Veja mais do nosso dia a dia no Instagram.</p>
-      <Button href={SITE.social.instagram} variant="outline" target="_blank" rel="noreferrer">
-        Seguir @casanacoli
-      </Button>
-    </div>
-  </Section>
+  <div class="mt-16 text-center">
+    <p class="mb-6 text-black/70">Veja mais do nosso dia a dia no Instagram.</p>
+    <Button href={SITE.social.instagram} variant="outline" target="_blank" rel="noreferrer">
+      Seguir @casanacoli
+    </Button>
+  </div>
 </BaseLayout>
