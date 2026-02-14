@@ -5,11 +5,12 @@ category: "personalizados"
 featured: true
 seoTitle: "Calendários personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Calendários personalizados com fotos e datas especiais. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
-coverImage: "/images/products/calendario-1.png"
+coverImage: "/images/products/calendario_4.webp"
 gallery:
-  - "/images/products/calendario-2.png"
-  - "/images/products/calendario-3.png"
-  - "/images/products/calendario-4.png"
+  - "/images/products/calendario_2.webp"
+  - "/images/products/calendario_3.webp"
+  - "/images/products/calendario_1.webp"
+  - "/images/products/calendario_5.webp"
 options:
   - key: "type"
     label: "Tipo"
