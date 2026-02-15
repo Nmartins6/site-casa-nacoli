@@ -5,11 +5,14 @@ category: "personalizados"
 featured: true
 seoTitle: "Chaveiros personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Chaveiros personalizados com fotos ou logotipos. Ideal para brindes e lembranças. Produção em Lajeado/RS."
-coverImage: "/images/products/chaveiro-1.png"
+coverImage: "/images/products/chaveiro_5.webp"
 gallery:
-  - "/images/products/chaveiro-2.png"
-  - "/images/products/chaveiro-3.png"
-  - "/images/products/chaveiro-4.png"
+  - "/images/products/chaveiro_2.webp"
+  - "/images/products/chaveiro_3.webp"
+  - "/images/products/chaveiro_4.webp"
+  - "/images/products/chaveiro_1.webp"
+  - "/images/products/chaveiro_6.webp"
+  - "/images/products/chaveiro_7.webp"
 options:
   - key: "material"
     label: "Material"
