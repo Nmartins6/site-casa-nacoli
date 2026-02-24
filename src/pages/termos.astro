@@ -1,20 +1,22 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
+import PageHeader from "@/components/PageHeader.astro";
 import { SITE } from "@/shared/config/site";
 
 const title = `Termos de Uso | ${SITE.name}`;
 const description = "Termos e condições de uso do site da Casa Nacoli.";
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/termos">
+<BaseLayout title={title} description={description} canonicalPath="/termos" showCTA={false}>
+  <PageHeader title="Termos de Uso">
+    <p class="mt-4 text-sm text-black/60">
+      Última atualização: {new Date().toLocaleDateString("pt-BR")}
+    </p>
+  </PageHeader>
+
   <Section>
     <div class="mx-auto max-w-3xl">
-      <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">Termos de Uso</h1>
-      <p class="mt-4 text-sm text-black/60">
-        Última atualização: {new Date().toLocaleDateString("pt-BR")}
-      </p>
-
       <div class="prose prose-zinc mt-10 max-w-none text-black/80">
         <h3>1. Termos</h3>
         <p>

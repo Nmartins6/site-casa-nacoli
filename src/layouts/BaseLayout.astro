@@ -2,6 +2,7 @@
 import { SITE } from "@/shared/config/site";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import CTASection from "@/components/CTASection.astro";
 import WhatsAppFloatingButton from "@/features/whatsapp/WhatsAppFloatingButton.astro";
 import "@/styles/global.css";
 
@@ -11,6 +12,7 @@ interface Props {
   image?: string;
   canonicalPath?: string;
   type?: "website" | "article" | "product";
+  showCTA?: boolean;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   image = "/og-image.jpg", // Placeholder
   canonicalPath = "/",
   type = "website",
+  showCTA = true,
 } = Astro.props;
 
 const canonicalURL = new URL(canonicalPath, SITE.url).toString();
@@ -32,14 +35,10 @@ const resolvedImage = new URL(image, SITE.url).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -47,16 +46,12 @@ const resolvedImage = new URL(image, SITE.url).toString();
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="pt_BR" />
-
-    <!-- Fonts: Quicksand (Variable) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- JSON-LD LocalBusiness -->
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
@@ -84,6 +79,7 @@ const resolvedImage = new URL(image, SITE.url).toString();
     <Header />
     <main class="flex-grow">
       <slot />
+      {showCTA && <CTASection />}
     </main>
     <Footer />
     <WhatsAppFloatingButton />

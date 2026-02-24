@@ -1,0 +1,77 @@
+---
+interface Props {
+  targetId?: string;
+  class?: string;
+}
+
+const { targetId, class: className } = Astro.props;
+---
+
+<button
+  id="scroll-indicator"
+  data-target={targetId}
+  class:list={[
+    "absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer z-10 transition-opacity duration-300",
+    "hidden lg:flex flex-col items-center gap-2 text-[var(--cn-ink)]/40 hover:text-[var(--cn-terracotta)]",
+    className,
+  ]}
+  aria-label="Rolar para baixo"
+>
+  <span class="text-[10px] uppercase tracking-[0.2em] font-medium leading-none">Veja mais</span>
+  <div class="relative flex h-8 w-5 justify-center rounded-full border-2 border-current">
+    <div class="mt-1.5 size-1 rounded-full bg-current animate-bounce-slow"></div>
+  </div>
+</button>
+
+<style>
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.3;
+    }
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite ease-in-out;
+  }
+</style>
+
+<script>
+  function setupScroll() {
+    const btn = document.getElementById("scroll-indicator");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+      let targetElement;
+
+      if (targetId) {
+        targetElement = document.getElementById(targetId);
+      } else {
+        const parentSection = btn.closest("section");
+        targetElement = parentSection?.nextElementSibling;
+      }
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        const opacity = Math.max(0, 1 - window.scrollY / 200);
+        btn.style.opacity = opacity.toString();
+        btn.style.pointerEvents = opacity <= 0 ? "none" : "auto";
+      },
+      { passive: true },
+    );
+  }
+
+  setupScroll();
+  document.addEventListener("astro:page-load", setupScroll);
+</script>

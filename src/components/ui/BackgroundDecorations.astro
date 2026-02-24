@@ -1,0 +1,61 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["absolute inset-0 -z-10 overflow-hidden", className]}>
+  <div class="absolute inset-0 bg-white/70 backdrop-blur-md"></div>
+  <div class="blur-blob sky-blob"></div>
+  <div class="blur-blob mustard-blob"></div>
+</div>
+
+<style>
+  .blur-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(120px);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .sky-blob {
+    width: 600px;
+    height: 600px;
+    background-color: var(--cn-sky);
+    opacity: 0.2;
+    top: -100px;
+    right: -100px;
+    animation: move-sky 20s infinite alternate ease-in-out;
+  }
+
+  .mustard-blob {
+    width: 500px;
+    height: 500px;
+    background-color: var(--cn-mustard);
+    opacity: 0.15;
+    bottom: -100px;
+    left: -100px;
+    animation: move-mustard 25s infinite alternate ease-in-out;
+  }
+
+  @keyframes move-sky {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    100% {
+      transform: translate(-100px, 150px) scale(1.1) rotate(10deg);
+    }
+  }
+
+  @keyframes move-mustard {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    100% {
+      transform: translate(150px, -100px) scale(1.2) rotate(-10deg);
+    }
+  }
+</style>

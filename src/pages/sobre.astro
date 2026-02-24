@@ -11,108 +11,145 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/sobre">
-  <PageHeader title={title} description={description} />
+  <PageHeader title="Sobre a Casa Nacoli" description={description} containerClass="max-w-7xl" />
 
-  <Section class="grid gap-12 md:grid-cols-2 md:items-center">
-    <div>
-      <div class="aspect-square w-full rounded-2xl bg-black/5 object-cover md:aspect-[4/5]">
-        <!-- Placeholder for About Image -->
-        <div class="flex h-full w-full items-center justify-center text-black/20">
-          Imagem: Processo Artesanal
+  <Section containerClass="max-w-screen-2xl">
+    <div class="grid gap-16 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <div class="overflow-hidden rounded-3xl shadow-2xl shadow-black/10">
+          <img
+            src="/images/products/papelaria-personalizada-1.png"
+            alt="Processo Artesanal Casa Nacoli"
+            class="aspect-video w-full object-cover transition-transform duration-700 hover:scale-105"
+          />
         </div>
       </div>
-    </div>
-    <div>
-      <h2 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
-        Artesanal e Independente
-      </h2>
-      <div class="prose prose-zinc mt-6 text-black/80">
-        <p>
-          Somos um pequeno estúdio de design e gráfica em Lajeado, Rio Grande do Sul. Fugimos da
-          produção em massa para focar nos detalhes que fazem a diferença: a textura do papel, a
-          escolha da tipografia, o acabamento manual.
-        </p>
-        <p>
-          Nosso processo combina técnicas tradicionais de impressão com design contemporâneo. Seja
-          para identidade visual de pequenas marcas, convites para momentos especiais ou papelaria
-          do dia a dia, nosso objetivo é encantar.
-        </p>
-        <p>
-          Valorizamos o tempo, a calma e a qualidade. Cada projeto é desenvolvido com atenção
-          individual, garantindo que o resultado final reflita a essência de quem o encomendou.
-        </p>
-      </div>
-      <div class="mt-8">
-        <Button href="/portfolio">Ver nosso trabalho</Button>
+      <div class="lg:col-span-5 lg:pl-8">
+        <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+          Artesanal e Independente
+        </h2>
+        <div class="mt-8 text-xl text-black/70 leading-relaxed space-y-6">
+          <p>
+            Somos um estúdio de design e gráfica em Lajeado, Rio Grande do Sul. Fugimos da produção
+            em massa para focar nos detalhes que fazem a diferença: a textura do papel, a escolha da
+            tipografia, o acabamento manual.
+          </p>
+          <p>
+            Nosso processo combina técnicas tradicionais de impressão com design contemporâneo.
+            Nosso objetivo é encantar através do toque e da visão.
+          </p>
+        </div>
+        <div class="mt-10">
+          <Button href="/catalogo" size="lg">Explorar nosso catálogo</Button>
+        </div>
       </div>
     </div>
   </Section>
 
-  <Section theme="white" class="text-center">
-    <h2 class="text-2xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-3xl">
-      Nossos Valores
-    </h2>
-    <div class="mt-12 grid gap-8 sm:grid-cols-3">
-      <div class="px-4">
-        <div
-          class="mx-auto flex size-12 items-center justify-center rounded-full bg-[var(--cn-cream)] text-[var(--cn-terracotta)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-            ><path
-              d="M223.68,66.15l-96-48a8,8,0,0,0-7.36,0l-96,48A8,8,0,0,0,20,73.31V96a84.62,84.62,0,0,0,10.61,41,85.25,85.25,0,0,0,76.54,46,8.12,8.12,0,0,0,1.7,0,8,8,0,0,0,3.69-1.89l8.6-8.6L143,194.34a8,8,0,0,0,11.31,0L240,108.69V73.31A8,8,0,0,0,223.68,66.15ZM121.14,151.72l-13.8,13.8a68.61,68.61,0,0,1-66.23-38A68.08,68.08,0,0,1,36,96V76.69l92-46,84,42v8.2Z"
-            ></path></svg
-          >
-        </div>
-        <h3 class="mt-4 font-semibold text-[var(--cn-ink)]">Qualidade Artesanal</h3>
-        <p class="mt-2 text-sm text-black/70">
-          Cuidado em cada etapa, do design ao acabamento final.
+  <Section theme="cream" containerClass="max-w-screen-2xl">
+    <div class="mb-20 text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+        O Processo Artesanal
+      </h2>
+      <p class="mx-auto mt-6 max-w-3xl text-xl text-black/60">
+        Cada projeto passa por um ciclo de cuidado e atenção, garantindo um resultado único e com
+        alma.
+      </p>
+    </div>
+
+    <div class="grid gap-10 md:grid-cols-3">
+      {
+        [
+          {
+            title: "Criação & Design",
+            desc: "Tudo começa no papel (ou no pixel). Criamos layouts que refletem a identidade e o propósito de cada cliente.",
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-8"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+          },
+          {
+            title: "Impressão Curada",
+            desc: "Escolhemos os melhores materiais e técnicas de impressão que valorizam a ideia do cliente.",
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-8"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>`,
+          },
+          {
+            title: "Acabamento Manual",
+            desc: "O toque final é dado à mão: cortes precisos, colagem delicada e embalagem com carinho.",
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-8"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5zM16 8L2 22M17.5 15H9"/></svg>`,
+          },
+        ].map((step) => (
+          <div class="group relative overflow-hidden rounded-3xl bg-white p-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div class="flex size-16 items-center justify-center rounded-2xl bg-[var(--cn-sky)]/10 text-[var(--cn-ink)] transition-colors group-hover:bg-[var(--cn-terracotta)] group-hover:text-white">
+              <Fragment set:html={step.icon} />
+            </div>
+            <h3 class="mt-8 text-2xl font-semibold text-[var(--cn-ink)]">{step.title}</h3>
+            <p class="mt-4 text-lg text-black/60 leading-relaxed">{step.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section containerClass="max-w-screen-2xl">
+    <div class="text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+        Valorizamos o tempo e a calma
+      </h2>
+      <div class="mt-10 max-w-4xl mx-auto space-y-8 text-xl text-black/70 leading-relaxed">
+        <p>
+          Acreditamos que o que é feito devagar tem mais valor. Cada projeto é desenvolvido com
+          atenção individual, garantindo que o resultado final reflita a essência de quem o
+          encomendou.
+        </p>
+        <p>
+          Nossa curadoria de materiais e processos é pensada para quem busca algo além do comercial.
+          Buscamos o extraordinário no simples, o detalhe que faz alguém parar e sentir.
         </p>
       </div>
-      <div class="px-4">
-        <div
-          class="mx-auto flex size-12 items-center justify-center rounded-full bg-[var(--cn-cream)] text-[var(--cn-terracotta)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-            ><path
-              d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-16-80a16,16,0,1,1,16,16A16,16,0,0,1,112,136Zm32-32V72a8,8,0,0,0-16,0v32a8,8,0,0,0,16,0Z"
-            ></path></svg
-          >
-        </div>
-        <h3 class="mt-4 font-semibold text-[var(--cn-ink)]">Atendimento Próximo</h3>
-        <p class="mt-2 text-sm text-black/70">
-          Conversa direta e transparente para entender sua necessidade.
-        </p>
+
+      <div class="mt-16 overflow-hidden rounded-3xl shadow-2xl">
+        <img
+          src="/images/products/brindes_personalizados_1.webp"
+          alt="Detalhes que importam"
+          class="h-[500px] w-full object-cover"
+        />
       </div>
-      <div class="px-4">
-        <div
-          class="mx-auto flex size-12 items-center justify-center rounded-full bg-[var(--cn-cream)] text-[var(--cn-terracotta)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            viewBox="0 0 256 256"
-            ><path
-              d="M224,176a8,8,0,0,1-8,8H192v24a8,8,0,0,1-16,0V184H152a8,8,0,0,1,0-16h24V144a8,8,0,0,1,16,0v24h24A8,8,0,0,1,224,176ZM116.35,53.28a8,8,0,0,0-11,2.07L92.79,72.43,87.32,94.29a8,8,0,0,0,5.39,9.39l22.21,6.34,19.34-11,26.54-9.65a8,8,0,0,0,3.64-11.83ZM204.62,40.19a39.84,39.84,0,0,0-56.44,0l-58,58-5.34-5.34a8,8,0,0,0-11.31,11.31l5.34,5.34L35.21,153.24A40,40,0,0,0,28,197.35L42.66,234a8,8,0,0,0,7.09,5.16,7.84,7.84,0,0,0,3.31-.73L90,223.79a40,40,0,0,0,44.11-7.21l43.72-43.71,5.34,5.34a8,8,0,0,0,11.31-11.31l-5.34-5.34,58-58a39.85,39.85,0,0,0,0-56.44l-26.49-26.49A39.9,39.9,0,0,0,204.62,40.19ZM78.69,212.48,51.84,223.22,62.58,196.37a24,24,0,0,1,4.32-26.49l38.29-38.29,22.18,22.18-38.29,38.29A23.93,23.93,0,0,1,78.69,212.48Zm110.15-95.27L145.13,73.49l26.49-26.49a24,24,0,0,1,33.81,0l26.49,26.49a24,24,0,0,1,0,33.81Z"
-            ></path></svg
-          >
-        </div>
-        <h3 class="mt-4 font-semibold text-[var(--cn-ink)]">Design com Propósito</h3>
-        <p class="mt-2 text-sm text-black/70">
-          Estética que funciona e comunica a essência da sua marca.
-        </p>
-      </div>
+    </div>
+  </Section>
+
+  <Section theme="white" class="pb-32" containerClass="max-w-screen-2xl">
+    <div class="mb-20 text-center">
+      <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+        Nossos Valores
+      </h2>
+    </div>
+
+    <div class="grid gap-12 sm:grid-cols-3">
+      {
+        [
+          {
+            title: "Qualidade Artesanal",
+            desc: "Cuidado genuíno em cada etapa, do design ao acabamento manual.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M223.68,66.15l-96-48a8,8,0,0,0-7.36,0l-96,48A8,8,0,0,0,20,73.31V96a84.62,84.62,0,0,0,10.61,41,85.25,85.25,0,0,0,76.54,46,8.12,8.12,0,0,0,1.7,0,8,8,0,0,0,3.69-1.89l8.6-8.6L143,194.34a8,8,0,0,0,11.31,0L240,108.69V73.31A8,8,0,0,0,223.68,66.15ZM121.14,151.72l-13.8,13.8a68.61,68.61,0,0,1-66.23-38A68.08,68.08,0,0,1,36,96V76.69l92-46,84,42v8.2Z"></path></svg>`,
+          },
+          {
+            title: "Atendimento Próximo",
+            desc: "Conversa direta e transparente para entender e personalizar cada desejo.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-16-80a16,16,0,1,1,16,16A16,16,0,0,1,112,136Zm32-32V72a8,8,0,0,0-16,0v32a8,8,0,0,0,16,0Z"></path></svg>`,
+          },
+          {
+            title: "Design com Propósito",
+            desc: "Estética que comunica a essência da sua marca ou momento especial.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm32-88a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16h48A8,8,0,0,1,160,128Zm0,32a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16h48A8,8,0,0,1,160,160Z"></path></svg>`,
+          },
+        ].map((valor) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="flex size-20 items-center justify-center rounded-3xl bg-[var(--cn-cream)] text-[var(--cn-terracotta)] shadow-lg shadow-[var(--cn-terracotta)]/5">
+              <Fragment set:html={valor.icon} />
+            </div>
+            <h3 class="mt-8 text-2xl font-semibold text-[var(--cn-ink)]">{valor.title}</h3>
+            <p class="mt-4 max-w-xs text-lg text-black/60 leading-relaxed">{valor.desc}</p>
+          </div>
+        ))
+      }
     </div>
   </Section>
 </BaseLayout>

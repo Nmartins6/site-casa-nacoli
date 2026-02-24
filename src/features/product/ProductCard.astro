@@ -20,26 +20,24 @@ const image2 = product.gallery?.[0]; // First image from gallery as hover altern
   ]}
 >
   <div class="relative aspect-square w-full bg-[var(--cn-cream)]">
-    {/* Main Image */}
     {
       image1 ? (
         <img
           src={image1}
           alt={product.title}
-          class={`absolute inset-0 h-full w-full object-contain p-4 transition-opacity duration-500 ${image2 ? "group-hover:opacity-0" : ""}`}
+          class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${image2 ? "group-hover:opacity-0" : ""}`}
         />
       ) : (
         <div class="flex h-full w-full items-center justify-center text-black/20">Sem imagem</div>
       )
     }
 
-    {/* Hover Image (if exists) */}
     {
       image2 && (
         <img
           src={image2}
           alt={`${product.title} - vista alternativa`}
-          class="absolute inset-0 h-full w-full object-contain p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />
       )
     }

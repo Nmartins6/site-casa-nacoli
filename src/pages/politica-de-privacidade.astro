@@ -1,20 +1,27 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
+import PageHeader from "@/components/PageHeader.astro";
 import { SITE } from "@/shared/config/site";
 
 const title = `Política de Privacidade | ${SITE.name}`;
 const description = "Política de privacidade e tratamento de dados da Casa Nacoli.";
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/politica-de-privacidade">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/politica-de-privacidade"
+  showCTA={false}
+>
+  <PageHeader title="Política de Privacidade">
+    <p class="mt-4 text-sm text-black/60">
+      Última atualização: {new Date().toLocaleDateString("pt-BR")}
+    </p>
+  </PageHeader>
+
   <Section>
     <div class="mx-auto max-w-3xl">
-      <h1 class="text-3xl font-semibold tracking-tight md:text-4xl">Política de Privacidade</h1>
-      <p class="mt-4 text-sm text-black/60">
-        Última atualização: {new Date().toLocaleDateString("pt-BR")}
-      </p>
-
       <div class="prose prose-zinc mt-10 max-w-none text-black/80">
         <p>
           A sua privacidade é importante para nós. É política da <strong>{SITE.name}</strong> respeitar

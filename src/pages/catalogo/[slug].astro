@@ -7,8 +7,9 @@ import ProductGallery from "@/features/product/ProductGallery";
 import { container } from "@/container";
 import { SITE } from "@/shared/config/site";
 import { buildWhatsAppLink } from "@/shared/lib/whatsapp";
+import BackgroundDecorations from "@/components/ui/BackgroundDecorations.astro";
+import ScrollIndicator from "@/components/ui/ScrollIndicator.astro";
 
-// getStaticPaths for SSG
 export async function getStaticPaths() {
   const products = await container.productRepository.getAll();
   return products.map((p) => ({
@@ -28,14 +29,12 @@ if (!product) {
 
 const relatedProducts = await container.productRepository.getRelated(product.slug);
 
-// Render content (Astro Component)
 const { Content } = product.render ? await product.render() : { Content: () => null };
 
 const title = product.seoTitle ?? product.title;
 const description = product.seoDescription ?? product.summary;
 const pageTitle = `${title} | ${SITE.name}`;
 
-// Direct WhatsApp Link (fallback)
 const baseMessage =
   product.whatsappMessage ?? `Olá! Gostaria de um orçamento para: ${product.title}`;
 const whatsappHref = buildWhatsAppLink(baseMessage);
@@ -47,8 +46,8 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
   canonicalPath={`/catalogo/${product.slug}`}
   image={product.coverImage}
 >
-  <Section class="pt-24 md:pt-32">
-    <!-- Breadcrumb -->
+  <Section class="relative z-0 overflow-hidden pt-24 md:pt-32">
+    <BackgroundDecorations />
     <nav class="flex items-center text-sm text-black/60">
       <a href="/" class="hover:text-[var(--cn-ink)]">Início</a>
       <span class="mx-2">/</span>
@@ -58,7 +57,6 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
     </nav>
 
     <div class="mt-8 grid gap-12 lg:grid-cols-2">
-      <!-- Gallery Column -->
       <div>
         <ProductGallery
           client:load
@@ -69,7 +67,6 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
         />
       </div>
 
-      <!-- Details Column -->
       <div>
         <h1 class="text-3xl font-bold tracking-tight text-[var(--cn-ink)] md:text-4xl">
           {product.title}
@@ -87,7 +84,6 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
           />
         </div>
 
-        <!-- Description Content -->
         <article
           class="prose prose-zinc prose-headings:font-semibold prose-headings:text-[var(--cn-ink)] prose-a:text-[var(--cn-terracotta)] mt-12 max-w-none"
         >
@@ -95,9 +91,10 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
         </article>
       </div>
     </div>
+
+    <ScrollIndicator />
   </Section>
 
-  <!-- Related Products -->
   {
     relatedProducts.length > 0 && (
       <Section theme="white" class="border-t border-black/5">

@@ -3,25 +3,22 @@ interface Props {
   class?: string;
   id?: string;
   theme?: "default" | "cream" | "white";
+  containerClass?: string;
 }
 
-const { class: className, id, theme = "default" } = Astro.props;
+const { class: className, id, theme = "default", containerClass } = Astro.props;
 
 const themeClasses = {
-  default: "bg-transparent", // inherents body bg
+  default: "bg-transparent",
   cream: "bg-[var(--cn-cream)]",
   white: "bg-white",
 };
 
-const classes = [
-  "py-16 md:py-24", // Consistent vertical spacing
-  themeClasses[theme],
-  className,
-].join(" ");
+const classes = ["py-16 md:py-24", themeClasses[theme], className].join(" ");
 ---
 
 <section id={id} class={classes}>
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class:list={["mx-auto px-4 sm:px-6 lg:px-8", containerClass || "max-w-7xl"]}>
     <slot />
   </div>
 </section>

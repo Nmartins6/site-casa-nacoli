@@ -12,12 +12,12 @@ export const SITE = {
     country: "Brasil",
   },
   social: {
-    instagram: "https://instagram.com/casanacoli",
-    whatsapp: "https://wa.me/5551989623134",
+    instagram: "https://instagram.com/casa_nacoli",
+    whatsapp: "https://wa.me/999795488",
   },
   contact: {
-    whatsapp: "+55 51 98962-3134",
-    email: "contato@casanacoli.com.br", // Placeholder
+    whatsapp: "+55 51 99979-5488",
+    email: "casanacoli@gmail.com",
   },
 };
 

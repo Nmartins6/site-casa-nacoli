@@ -16,7 +16,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Qual a quantidade mínima?",
-    a: "Depende do item. Muitos personalizados (como canecas) fazemos a partir de 1 unidade. Impressos gráficos geralmente têm mínimos de 50 ou 100.",
+    a: "Depende do item. Muitos personalizados (como canecas) fazemos a partir de 1 unidade. Também fazemos impressos gráficos a partir de 1 unidade, mas geralmente o valor a partir de 50 unidades fica mais em conta.",
   },
   {
     q: "Enviam para outras cidades?",
