@@ -5,11 +5,11 @@ category: "personalizados"
 featured: true
 seoTitle: "Agendas personalizadas em Lajeado/RS | Casa Nacoli"
 seoDescription: "Agendas personalizadas com capa exclusiva. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
-coverImage: "/images/products/agenda_1.webp"
+coverImage: "/images/products/agenda/agenda.webp"
 gallery:
-  - "/images/products/agenda_2.webp"
-  - "/images/products/agenda-3.png"
-  - "/images/products/agenda-4.png"
+  - "/images/products/agenda/agenda_1.webp"
+  - "/images/products/agenda/agenda_2.webp"
+  - "/images/products/agenda/agenda_3.webp"
 options:
   - key: "size"
     label: "Tamanho"
