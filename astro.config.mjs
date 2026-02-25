@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://nmartins6.github.io",
-  base: "/",
+  base: "/site-casa-nacoli/",
   integrations: [
     react({ experimentalReactChildren: true }),
     sitemap(),
