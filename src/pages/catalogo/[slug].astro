@@ -43,15 +43,16 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 <BaseLayout
   title={pageTitle}
   description={description}
-  canonicalPath={`/catalogo/${product.slug}`}
+  canonicalPath={`${import.meta.env.BASE_URL}catalogo/${product.slug}`}
   image={product.coverImage}
 >
   <Section class="relative z-0 overflow-hidden pt-24 md:pt-32">
     <BackgroundDecorations />
     <nav class="flex items-center text-sm text-black/60">
-      <a href="/" class="hover:text-[var(--cn-ink)]">Início</a>
+      <a href={import.meta.env.BASE_URL} class="hover:text-[var(--cn-ink)]">Início</a>
       <span class="mx-2">/</span>
-      <a href="/catalogo" class="hover:text-[var(--cn-ink)]">Catálogo</a>
+      <a href={`${import.meta.env.BASE_URL}catalogo`} class="hover:text-[var(--cn-ink)]">Catálogo</a
+      >
       <span class="mx-2">/</span>
       <span class="text-[var(--cn-ink)] font-medium truncate max-w-[200px]">{product.title}</span>
     </nav>
@@ -102,7 +103,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
         <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {relatedProducts.map((p) => (
             <a
-              href={`/catalogo/${p.slug}`}
+              href={`${import.meta.env.BASE_URL}catalogo/${p.slug}`}
               class="group rounded-xl border border-black/5 bg-white p-4 transition-colors hover:border-[var(--cn-ink)]/20"
             >
               <div class="aspect-[4/3] overflow-hidden rounded-lg bg-[var(--cn-cream)] mb-4">

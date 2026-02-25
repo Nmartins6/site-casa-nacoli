@@ -29,7 +29,9 @@ const whatsappHref = buildWhatsAppLink(WHATSAPP_MESSAGE_BUDGET);
 
     <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <Button href={whatsappHref} target="_blank" size="lg"> Pedir orçamento </Button>
-      <Button href="/catalogo" variant="outline" size="lg"> Ver catálogo </Button>
+      <Button href={`${import.meta.env.BASE_URL}catalogo`} variant="outline" size="lg">
+        Ver catálogo
+      </Button>
     </div>
   </div>
 

@@ -13,7 +13,7 @@ const image2 = product.images?.[0];
 ---
 
 <a
-  href={`/catalogo/${product.slug}`}
+  href={`${import.meta.env.BASE_URL}catalogo/${product.slug}`}
   class:list={[
     "group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition-all hover:-translate-y-1 hover:border-[var(--cn-ink)]/20 hover:shadow-md",
     className,
@@ -23,7 +23,7 @@ const image2 = product.images?.[0];
     {
       image1 ? (
         <img
-          src={image1}
+          src={image1.startsWith("/") ? `${import.meta.env.BASE_URL}${image1.slice(1)}` : image1}
           alt={product.title}
           class={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${image2 ? "group-hover:opacity-0" : ""}`}
         />
@@ -35,7 +35,7 @@ const image2 = product.images?.[0];
     {
       image2 && (
         <img
-          src={image2}
+          src={image2.startsWith("/") ? `${import.meta.env.BASE_URL}${image2.slice(1)}` : image2}
           alt={`${product.title} - vista alternativa`}
           class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />

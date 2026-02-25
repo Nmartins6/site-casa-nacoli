@@ -8,6 +8,14 @@ interface Props {
 export default function ProductGallery({ images, title }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const baseUrl = import.meta.env.BASE_URL;
+
+  const getFullSrc = (src: string) => {
+    if (src.startsWith("/")) {
+      return `${baseUrl}${src.slice(1)}`;
+    }
+    return src;
+  };
 
   if (!images || images.length === 0) {
     return (
@@ -59,7 +67,7 @@ export default function ProductGallery({ images, title }: Props) {
           {validImages.map((src, i) => (
             <div key={i} className="flex-none w-full h-full snap-center">
               <img
-                src={src}
+                src={getFullSrc(src)}
                 alt={`${title} - Imagem ${i + 1}`}
                 className="h-full w-full object-cover"
               />
@@ -117,7 +125,11 @@ export default function ProductGallery({ images, title }: Props) {
                   : "ring-1 ring-black/5 hover:opacity-80"
               }`}
             >
-              <img src={src} alt={`Miniatura ${i + 1}`} className="h-full w-full object-cover" />
+              <img
+                src={getFullSrc(src)}
+                alt={`Miniatura ${i + 1}`}
+                className="h-full w-full object-cover"
+              />
             </button>
           ))}
         </div>

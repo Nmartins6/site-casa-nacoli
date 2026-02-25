@@ -16,7 +16,11 @@ const description =
   "Catálogo de produtos e serviços da Casa Nacoli em Lajeado/RS. Personalizados, impressos e design.";
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/catalogo">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={`${import.meta.env.BASE_URL}catalogo`}
+>
   <PageHeader
     title="Catálogo"
     description="Produtos e serviços feitos com cuidado artesanal. Selecione um item para ver detalhes e pedir seu orçamento."
@@ -34,7 +38,7 @@ const description =
       Trabalhamos com projetos especiais sob medida. Entre em contato e conte sua ideia.
     </p>
     <div class="mt-8">
-      <Button href="/contato" variant="outline">Fale conosco</Button>
+      <Button href={`${import.meta.env.BASE_URL}contato`} variant="outline">Fale conosco</Button>
     </div>
   </Section>
 </BaseLayout>

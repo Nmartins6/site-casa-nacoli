@@ -5,19 +5,16 @@ import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://casanacoli.com.br", // Placeholder URL for sitemap generation
+  site: "https://nmartins6.github.io",
+  base: "/",
   integrations: [
-    react({
-      experimentalReactChildren: true,
-    }),
+    react({ experimentalReactChildren: true }),
     sitemap(),
   ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
-      alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
-      },
+      alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
     },
   },
 });

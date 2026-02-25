@@ -10,7 +10,11 @@ const description =
   "Conheça a história e o processo da Casa Nacoli, gráfica artesanal em Lajeado/RS.";
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/sobre">
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={`${import.meta.env.BASE_URL}sobre`}
+>
   <PageHeader title="Sobre a Casa Nacoli" description={description} containerClass="max-w-7xl" />
 
   <Section containerClass="max-w-screen-2xl">
@@ -18,7 +22,7 @@ const description =
       <div class="lg:col-span-7">
         <div class="overflow-hidden rounded-3xl shadow-2xl shadow-black/10">
           <img
-            src="/images/products/papelaria-personalizada/papelaria-personalizada.png"
+            src={`${import.meta.env.BASE_URL}images/products/papelaria-personalizada/papelaria-personalizada.png`}
             alt="Processo Artesanal Casa Nacoli"
             class="aspect-video w-full object-cover transition-transform duration-700 hover:scale-105"
           />
@@ -40,7 +44,9 @@ const description =
           </p>
         </div>
         <div class="mt-10">
-          <Button href="/catalogo" size="lg">Explorar nosso catálogo</Button>
+          <Button href={`${import.meta.env.BASE_URL}catalogo`} size="lg"
+            >Explorar nosso catálogo</Button
+          >
         </div>
       </div>
     </div>
@@ -107,7 +113,7 @@ const description =
 
       <div class="mt-16 overflow-hidden rounded-3xl shadow-2xl">
         <img
-          src="/images/products/brindes-corporativos/brindes-corporativos-1.webp"
+          src={`${import.meta.env.BASE_URL}images/products/brindes-corporativos/brindes-corporativos-1.webp`}
           alt="Detalhes que importam"
           class="h-[500px] w-full object-cover"
         />

@@ -16,7 +16,7 @@ const description = "A página que você procurou não existe.";
     <h1 class="text-4xl font-bold tracking-tight md:text-6xl text-[var(--cn-ink)]">404</h1>
     <p class="mt-4 text-lg text-black/70">Oops! Parece que esta página não existe.</p>
     <div class="mt-8">
-      <Button href="/">Voltar para o início</Button>
+      <Button href={import.meta.env.BASE_URL}>Voltar para o início</Button>
     </div>
   </Section>
 </BaseLayout>

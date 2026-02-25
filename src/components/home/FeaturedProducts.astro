@@ -18,7 +18,7 @@ const featuredProducts = await container.productRepository.getFeatured();
           <p class="mt-2 text-black/60">Alguns dos itens favoritos dos nossos clientes.</p>
         </div>
         <a
-          href="/catalogo"
+          href={`${import.meta.env.BASE_URL}catalogo`}
           class="hidden text-sm font-medium text-[var(--cn-terracotta)] hover:underline sm:block"
         >
           Ver tudo →
@@ -32,7 +32,7 @@ const featuredProducts = await container.productRepository.getFeatured();
       </div>
 
       <div class="mt-8 text-center sm:hidden">
-        <Button href="/catalogo" variant="outline">
+        <Button href={`${import.meta.env.BASE_URL}catalogo`} variant="outline">
           Ver catálogo completo
         </Button>
       </div>
