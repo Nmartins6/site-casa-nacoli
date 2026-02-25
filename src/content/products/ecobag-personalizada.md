@@ -5,14 +5,14 @@ category: "personalizados"
 featured: true
 seoTitle: "Ecobag personalizada em Lajeado/RS | Casa Nacoli"
 seoDescription: "Ecobags personalizadas com sua arte ou logo. Sustentável e versátil. Produção em Lajeado/RS."
-coverImage: "/images/products/ecobag_1.webp"
-gallery:
-  - "/images/products/ecobag_2.webp"
-  - "/images/products/ecobag_3.webp"
-  - "/images/products/ecobag_4.webp"
-  - "/images/products/ecobag_5.webp"
-  - "/images/products/ecobag_6.webp"
-  - "/images/products/ecobag_7.webp"
+coverImage: "/images/products/ecobag-personalizada/ecobag-personalizada.webp"
+images:
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-1.webp"
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-2.webp"
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-3.webp"
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-4.webp"
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-5.webp"
+  - "/images/products/ecobag-personalizada/ecobag-personalizada-6.webp"
 options:
   - key: "size"
     label: "Tamanho"

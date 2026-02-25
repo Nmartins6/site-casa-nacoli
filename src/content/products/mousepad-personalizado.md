@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Mousepad personalizado em Lajeado/RS | Casa Nacoli"
 seoDescription: "Mousepads personalizados com alta qualidade de tecido em Lajeado/RS. Base antiderrapante e cores vivas. Peça o seu."
-coverImage: "/images/products/placeholder.png"
-gallery:
-  - "/images/products/placeholder.png"
+coverImage: "/images/products/mousepad-personalizado/mousepad-personalizado.webp"
+images:
+  - "/images/products/mousepad-personalizado/mousepad-personalizado.webp"
 whatsappMessage: "Olá! Gostaria de personalizar um mousepad. Posso enviar minha arte?"
 ---
 

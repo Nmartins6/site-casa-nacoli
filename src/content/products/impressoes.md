@@ -5,11 +5,9 @@ category: "impressos"
 featured: true
 seoTitle: "Impressões em Lajeado/RS | Casa Nacoli"
 seoDescription: "Impressões de alta qualidade — flyers, banners, convites e mais. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
-coverImage: "/images/products/impressao-1.png"
-gallery:
-  - "/images/products/impressao-2.png"
-  - "/images/products/impressao-3.png"
-  - "/images/products/impressao-4.png"
+coverImage: "/images/products/impressoes/impressoes.webp"
+images:
+  - "/images/products/impressoes/impressoes.webp"
 options:
   - key: "format"
     label: "Formato"

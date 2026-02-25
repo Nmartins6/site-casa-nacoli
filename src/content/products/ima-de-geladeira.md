@@ -5,9 +5,9 @@ category: "personalizados"
 featured: false
 seoTitle: "Imã de geladeira personalizado em Lajeado/RS | Casa Nacoli"
 seoDescription: "Imãs de geladeira em Lajeado/RS. Ideal para lembrancinhas de aniversário, casamentos ou divulgação comercial."
-coverImage: "/images/products/placeholder.png"
-gallery:
-  - "/images/products/placeholder.png"
+coverImage: "/images/products/ima-de-geladeira/ima-de-geladeira.webp"
+images:
+  - "/images/products/ima-de-geladeira/ima-de-geladeira.webp"
 whatsappMessage: "Olá! Quero saber sobre imãs de geladeira personalizados. Quais os modelos disponíveis?"
 ---
 

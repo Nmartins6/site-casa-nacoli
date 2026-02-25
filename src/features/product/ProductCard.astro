@@ -9,7 +9,7 @@ interface Props {
 const { product, class: className } = Astro.props;
 
 const image1 = product.coverImage;
-const image2 = product.gallery?.[0]; // First image from gallery as hover alternative
+const image2 = product.images?.[0];
 ---
 
 <a

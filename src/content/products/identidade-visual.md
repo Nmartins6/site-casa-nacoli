@@ -5,11 +5,9 @@ category: "servicos"
 featured: true
 seoTitle: "Criação de identidade visual em Lajeado/RS | Casa Nacoli"
 seoDescription: "Criação de identidade visual — logo, paleta, tipografia e manual de marca. Lajeado/RS."
-coverImage: "/images/products/identidade-visual-1.png"
-gallery:
-  - "/images/products/identidade-visual-2.png"
-  - "/images/products/identidade-visual-3.png"
-  - "/images/products/identidade-visual-4.png"
+coverImage: "/images/products/identidade-visual/identidade-visual.webp"
+images:
+  - "/images/products/identidade-visual/identidade-visual.webp"
 options:
   - key: "type"
     label: "Pacote"

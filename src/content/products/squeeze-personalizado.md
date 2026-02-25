@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Squeeze personalizado em Lajeado/RS | Casa Nacoli"
 seoDescription: "Squeezes personalizados de alta durabilidade em Lajeado/RS. Várias opções de cores e materiais. Peça seu orçamento via WhatsApp."
-coverImage: "/images/products/squeeze-personalizado-1.png"
-gallery:
-  - "/images/products/squeeze-personalizado-1.png"
+coverImage: "/images/products/squeeze-personalizado/squeeze-personalizado.png"
+images:
+  - "/images/products/squeeze-personalizado/squeeze-personalizado.png"
 whatsappMessage: "Olá! Quero um orçamento de squeeze personalizado. Quais modelos você tem?"
 ---
 

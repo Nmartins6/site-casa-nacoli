@@ -5,11 +5,14 @@ category: "brindes"
 featured: true
 seoTitle: "Brindes corporativos em Lajeado/RS | Casa Nacoli"
 seoDescription: "Brindes corporativos personalizados para empresas. Canetas, blocos, kits e mais. Produção em Lajeado/RS."
-coverImage: "/images/products/brindes_personalizados_1.webp"
-gallery:
-  - "/images/products/brindes_personalizados_2.webp"
-  - "/images/products/brindes_personalizados_3.webp"
-  - "/images/products/brindes_personalizados_4.webp"
+coverImage: "/images/products/brindes-corporativos/brindes-corporativos.webp"
+images:
+  - "/images/products/brindes-corporativos/brindes-corporativos-1.webp"
+  - "/images/products/brindes-corporativos/brindes-corporativos-2.webp"
+  - "/images/products/brindes-corporativos/brindes-corporativos-3.webp"
+  - "/images/products/brindes-corporativos/brindes-corporativos-4.webp"
+  - "/images/products/brindes-corporativos/brindes-corporativos-5.webp"
+  - "/images/products/brindes-corporativos/brindes-corporativos-6.webp"
 options:
   - key: "type"
     label: "Tipo"

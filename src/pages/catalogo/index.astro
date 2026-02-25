@@ -9,7 +9,7 @@ import { SITE } from "@/shared/config/site";
 
 const products = await container.productRepository.getAll();
 const featured = products.filter((p) => p.featured);
-const all = products; // Or filter out featured if desired, but "All" usually implies everything.
+const all = products;
 
 const title = `Catálogo | ${SITE.name}`;
 const description =

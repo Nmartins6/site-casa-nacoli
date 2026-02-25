@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Sacolas personalizadas em Lajeado/RS | Casa Nacoli"
 seoDescription: "Sacolas personalizadas para lojas e eventos em Lajeado/RS. Papel couchê ou offset com acabamento premium. Peça orçamento."
-coverImage: "/images/products/placeholder.png"
-gallery:
-  - "/images/products/placeholder.png"
+coverImage: "/images/products/sacolas-personalizadas/sacolas-personalizadas.png"
+images:
+  - "/images/products/sacolas-personalizadas/sacolas-personalizadas.png"
 whatsappMessage: "Olá! Gostaria de orçamento para sacolas personalizadas. Qual a quantidade mínima?"
 ---
 

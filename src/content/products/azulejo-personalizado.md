@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Azulejo personalizado em Lajeado/RS | Casa Nacoli"
 seoDescription: "Azulejos personalizados com fotos ou frases em Lajeado/RS. Alta durabilidade e brilho. Peça seu orçamento."
-coverImage: "/images/products/placeholder.png"
-gallery:
-  - "/images/products/placeholder.png"
+coverImage: "/images/products/azulejo-personalizado/azulejo-personalizado.webp"
+images:
+  - "/images/products/azulejo-personalizado/azulejo-personalizado.webp"
 whatsappMessage: "Olá! Tenho interesse em azulejos personalizados. Como funciona a personalização?"
 ---
 

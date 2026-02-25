@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Papelaria personalizada em Lajeado/RS | Casa Nacoli"
 seoDescription: "Papelaria personalizada de alta qualidade em Lajeado/RS. Ideal para brindes corporativos e organização pessoal. Peça seu orçamento."
-coverImage: "/images/products/papelaria-personalizada-1.png"
-gallery:
-  - "/images/products/papelaria-personalizada-1.png"
+coverImage: "/images/products/papelaria-personalizada/papelaria-personalizada.png"
+images:
+  - "/images/products/papelaria-personalizada/papelaria-personalizada.png"
 whatsappMessage: "Olá! Gostaria de um orçamento para papelaria personalizada. Quais itens você teria disponível?"
 ---
 

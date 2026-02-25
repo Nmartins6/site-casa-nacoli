@@ -20,7 +20,6 @@ const variantSchema = z.object({
     material: z.string().min(1).optional(),
     format: z.string().min(1).optional(),
   }),
-  // preço pode ser opcional no MVP (muito produto é "sob consulta")
   priceCents: z.number().int().nonnegative().optional(),
   available: z.boolean().default(true),
 });
@@ -44,19 +43,15 @@ const products = defineCollection({
       .default("personalizados"),
     featured: z.boolean().default(false),
 
-    // SEO básico por produto
     seoTitle: z.string().min(1).optional(),
     seoDescription: z.string().min(1).optional(),
 
-    // mídia
-    coverImage: z.string().min(1).optional(), // depois podemos trocar para Image() do Astro
-    gallery: z.array(z.string().min(1)).default([]),
+    coverImage: z.string().min(1).optional(),
+    images: z.array(z.string().min(1)).default([]),
 
-    // variações
     options: z.array(optionSchema).default([]),
     variants: z.array(variantSchema).default([]),
 
-    // call to action
     whatsappMessage: z.string().min(1).optional(),
   }),
 });

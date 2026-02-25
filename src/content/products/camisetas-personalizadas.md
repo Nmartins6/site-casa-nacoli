@@ -5,12 +5,12 @@ category: "personalizados"
 featured: true
 seoTitle: "Camisetas personalizadas em Lajeado/RS | Casa Nacoli"
 seoDescription: "Camisetas personalizadas com tamanhos P, M, G e outros sob consulta. Lajeado/RS. Peça orçamento no WhatsApp."
-coverImage: "/images/products/camiseta-1.png"
-gallery:
-  - "/images/products/camiseta-2.png"
-  - "/images/products/camiseta-3.png"
-  - "/images/products/camiseta-4.png"
-  - "/images/products/camiseta-5.png"
+coverImage: "/images/products/camisetas-personalizadas/camisetas-personalizadas.png"
+images:
+  - "/images/products/camisetas-personalizadas/camisetas-personalizadas-1.png"
+  - "/images/products/camisetas-personalizadas/camisetas-personalizadas-2.png"
+  - "/images/products/camisetas-personalizadas/camisetas-personalizadas-3.png"
+  - "/images/products/camisetas-personalizadas/camisetas-personalizadas-4.png"
 options:
   - key: "size"
     label: "Tamanho"

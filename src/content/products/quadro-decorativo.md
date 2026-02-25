@@ -5,9 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Quadro decorativo em Lajeado/RS | Casa Nacoli"
 seoDescription: "Quadros decorativos personalizados em Lajeado/RS. Ideal para decoração de casa ou escritório. Molduras de alta qualidade."
-coverImage: "/images/products/placeholder.png"
-gallery:
-  - "/images/products/placeholder.png"
+coverImage: "/images/products/quadro-decorativo/quadro-decorativo.webp"
+images:
+  - "/images/products/quadro-decorativo/quadro-decorativo.webp"
 whatsappMessage: "Olá! Gostaria de saber mais sobre os quadros decorativos personalizados. Quais tamanhos você trabalha?"
 ---
 

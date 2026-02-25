@@ -5,11 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Cadernos personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Cadernos personalizados com capa exclusiva. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
-coverImage: "/images/products/caderno-1.png"
-gallery:
-  - "/images/products/caderno-2.png"
-  - "/images/products/caderno-3.png"
-  - "/images/products/caderno-4.png"
+coverImage: "/images/products/cadernos-personalizados/cadernos-personalizados.webp"
+images:
+  - "/images/products/cadernos-personalizados/cadernos-personalizados.webp"
 options:
   - key: "size"
     label: "Tamanho"

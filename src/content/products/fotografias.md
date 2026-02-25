@@ -5,11 +5,9 @@ category: "fotografia"
 featured: true
 seoTitle: "Impressão de fotografias em Lajeado/RS | Casa Nacoli"
 seoDescription: "Impressão de fotografias em alta qualidade. Diversos tamanhos disponíveis. Produção em Lajeado/RS."
-coverImage: "/images/products/fotografia-1.png"
-gallery:
-  - "/images/products/fotografia-2.png"
-  - "/images/products/fotografia-3.png"
-  - "/images/products/fotografia-4.png"
+coverImage: "/images/products/fotografias/fotografias.webp"
+images:
+  - "/images/products/fotografias/fotografias.webp"
 options:
   - key: "size"
     label: "Tamanho"

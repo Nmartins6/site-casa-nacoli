@@ -5,12 +5,12 @@ category: "impressos"
 featured: true
 seoTitle: "Cartões de visita em Lajeado/RS | Casa Nacoli"
 seoDescription: "Cartões de visita com opções de papel, acabamento e quantidades. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
-coverImage: "/images/products/cartao-1.png"
-gallery:
-  - "/images/products/cartao-2.png"
-  - "/images/products/cartao-3.png"
-  - "/images/products/cartao-4.png"
-  - "/images/products/cartao-5.png"
+coverImage: "/images/products/cartoes-de-visita/cartoes-de-visita.png"
+images:
+  - "/images/products/cartoes-de-visita/cartoes-de-visita-1.png"
+  - "/images/products/cartoes-de-visita/cartoes-de-visita-2.png"
+  - "/images/products/cartoes-de-visita/cartoes-de-visita-3.png"
+  - "/images/products/cartoes-de-visita/cartoes-de-visita-4.png"
 options:
   - key: "paper"
     label: "Papel"

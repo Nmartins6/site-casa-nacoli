@@ -5,11 +5,11 @@ category: "personalizados"
 featured: true
 seoTitle: "Copos personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Copos personalizados com sua arte ou logo. Diversos modelos. Produção em Lajeado/RS."
-coverImage: "/images/products/copo-1.png"
-gallery:
-  - "/images/products/copo-2.png"
-  - "/images/products/copo-3.png"
-  - "/images/products/copo-4.png"
+coverImage: "/images/products/copos-personalizados/copos-personalizados.png"
+images:
+  - "/images/products/copos-personalizados/copos-personalizados-1.png"
+  - "/images/products/copos-personalizados/copos-personalizados-2.png"
+  - "/images/products/copos-personalizados/copos-personalizados-3.png"
 options:
   - key: "type"
     label: "Tipo"

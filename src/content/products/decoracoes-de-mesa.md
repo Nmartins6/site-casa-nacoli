@@ -5,11 +5,9 @@ category: "decoracao"
 featured: true
 seoTitle: "Decorações de mesa impressas em Lajeado/RS | Casa Nacoli"
 seoDescription: "Decorações de mesa impressas — totens, displays, porta-retratos e mais. Produção em Lajeado/RS."
-coverImage: "/images/products/decoracao-mesa-1.png"
-gallery:
-  - "/images/products/decoracao-mesa-2.png"
-  - "/images/products/decoracao-mesa-3.png"
-  - "/images/products/decoracao-mesa-4.png"
+coverImage: "/images/products/decoracoes-de-mesa/decoracoes-de-mesa.webp"
+images:
+  - "/images/products/decoracoes-de-mesa/decoracoes-de-mesa.webp"
 options:
   - key: "type"
     label: "Tipo"

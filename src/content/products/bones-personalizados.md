@@ -6,7 +6,7 @@ featured: true
 seoTitle: "Bonés personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Bonés personalizados com bordado ou sublimação. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
 coverImage: "/images/products/bones-personalizados/bones-personalizados.webp"
-gallery:
+images:
   - "/images/products/bones-personalizados/bones-personalizados-1.webp"
   - "/images/products/bones-personalizados/bones-personalizados-2.webp"
 options:

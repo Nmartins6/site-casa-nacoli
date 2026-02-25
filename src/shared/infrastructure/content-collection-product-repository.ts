@@ -14,7 +14,7 @@ export class ContentCollectionProductRepository implements ProductRepository {
       seoTitle: collectionItem.data.seoTitle,
       seoDescription: collectionItem.data.seoDescription,
       coverImage: collectionItem.data.coverImage,
-      gallery: collectionItem.data.gallery,
+      images: collectionItem.data.images,
       options: collectionItem.data.options.map((opt: any) => ({
         key: opt.key as ProductOptionType,
         label: opt.label,
@@ -52,7 +52,6 @@ export class ContentCollectionProductRepository implements ProductRepository {
     const current = all.find((p) => p.slug === slug);
     if (!current) return [];
 
-    // Simple strategy: same category, excluding self
     return all.filter((p) => p.category === current.category && p.slug !== slug).slice(0, limit);
   }
 }

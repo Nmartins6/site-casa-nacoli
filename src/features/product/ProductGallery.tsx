@@ -9,7 +9,6 @@ export default function ProductGallery({ images, title }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // If no images, show placeholder
   if (!images || images.length === 0) {
     return (
       <div className="aspect-square w-full rounded-2xl bg-[#FAEEDE] flex items-center justify-center text-[#494238]/20 ring-1 ring-black/5">
@@ -18,8 +17,6 @@ export default function ProductGallery({ images, title }: Props) {
     );
   }
 
-  // Ensure unique images to prevent key duplication issues (though index key handles it)
-  // and filter out empty strings
   const validImages = images.filter(Boolean);
 
   if (validImages.length === 0) {
@@ -41,7 +38,6 @@ export default function ProductGallery({ images, title }: Props) {
     }
   };
 
-  // Update selected index on scroll
   const handleScroll = () => {
     if (scrollContainerRef.current) {
       const width = scrollContainerRef.current.offsetWidth;
@@ -53,7 +49,6 @@ export default function ProductGallery({ images, title }: Props) {
 
   return (
     <div className="space-y-4">
-      {/* Main Image Viewport */}
       <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-[#FAEEDE] ring-1 ring-black/5">
         <div
           ref={scrollContainerRef}
@@ -72,7 +67,6 @@ export default function ProductGallery({ images, title }: Props) {
           ))}
         </div>
 
-        {/* Navigation Arrows (visible on hover/desktop) */}
         {validImages.length > 1 && (
           <>
             <button
@@ -111,7 +105,6 @@ export default function ProductGallery({ images, title }: Props) {
         )}
       </div>
 
-      {/* Thumbnails */}
       {validImages.length > 1 && (
         <div className="grid grid-cols-5 gap-3">
           {validImages.map((src, i) => (

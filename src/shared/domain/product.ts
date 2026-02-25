@@ -14,19 +14,27 @@ export interface ProductVariant {
 }
 
 export interface Product {
-  id: string; // slug
+  id: string;
   slug: string;
   title: string;
   summary: string;
-  category: "personalizados" | "impressos" | "identidade-visual" | "sites" | "decoracao";
+  category:
+    | "personalizados"
+    | "impressos"
+    | "identidade-visual"
+    | "sites"
+    | "decoracao"
+    | "brindes"
+    | "fotografia"
+    | "servicos";
   featured: boolean;
   seoTitle?: string;
   seoDescription?: string;
   coverImage?: string;
-  gallery: string[];
+  images: string[];
   options: ProductOption[];
   variants: ProductVariant[];
   whatsappMessage?: string;
-  bodyContent?: string; // HTML or Markdown content
-  render?: () => Promise<{ Content: any }>; // Astro specific render function
+  bodyContent?: string;
+  render?: () => Promise<{ Content: any }>;
 }

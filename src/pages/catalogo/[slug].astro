@@ -60,7 +60,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
       <div>
         <ProductGallery
           client:load
-          images={[product.coverImage, ...(product.gallery || [])].filter(
+          images={[product.coverImage, ...(product.images || [])].filter(
             (img): img is string => !!img,
           )}
           title={product.title}
@@ -105,7 +105,15 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
               href={`/catalogo/${p.slug}`}
               class="group rounded-xl border border-black/5 bg-white p-4 transition-colors hover:border-[var(--cn-ink)]/20"
             >
-              <div class="aspect-[4/3] rounded-lg bg-[var(--cn-cream)] mb-4" />
+              <div class="aspect-[4/3] overflow-hidden rounded-lg bg-[var(--cn-cream)] mb-4">
+                {p.coverImage && (
+                  <img
+                    src={p.coverImage}
+                    alt={p.title}
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+              </div>
               <h3 class="font-medium text-[var(--cn-ink)]">{p.title}</h3>
               <p class="text-sm text-black/60 truncate">{p.summary}</p>
             </a>

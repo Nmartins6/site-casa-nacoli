@@ -5,11 +5,9 @@ category: "personalizados"
 featured: true
 seoTitle: "Quebra-cabeças personalizados em Lajeado/RS | Casa Nacoli"
 seoDescription: "Quebra-cabeças personalizados com suas fotos. Presente único e criativo. Produção em Lajeado/RS."
-coverImage: "/images/products/quebra-cabeca-1.png"
-gallery:
-  - "/images/products/quebra-cabeca-2.png"
-  - "/images/products/quebra-cabeca-3.png"
-  - "/images/products/quebra-cabeca-4.png"
+coverImage: "/images/products/quebra-cabecas/quebra-cabecas.webp"
+images:
+  - "/images/products/quebra-cabecas/quebra-cabecas.webp"
 options:
   - key: "size"
     label: "Tamanho"
