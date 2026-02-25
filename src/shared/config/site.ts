@@ -3,7 +3,7 @@ export const SITE = {
   title: "Casa Nacoli | Gráfica Artesanal & Design",
   description:
     "Gráfica artesanal independente e estúdio de design em Lajeado/RS. Papelaria personalizada, identidade visual e projetos especiais com alma.",
-  url: "https://casanacoli.com.br",
+  url: "https://nmartins6.github.io/site-casa-nacoli/",
   author: "Casa Nacoli",
   locale: "pt-BR",
   address: {

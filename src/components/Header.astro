@@ -3,11 +3,11 @@ import Button from "@/components/ui/Button.astro";
 import { SITE } from "@/shared/config/site";
 
 const nav = [
-  { href: `${import.meta.env.BASE_URL}`, label: "Início" },
-  { href: `${import.meta.env.BASE_URL}catalogo`, label: "Catálogo" },
-  { href: `${import.meta.env.BASE_URL}sobre`, label: "Sobre" },
-  { href: `${import.meta.env.BASE_URL}portfolio`, label: "Portfólio" },
-  { href: `${import.meta.env.BASE_URL}contato`, label: "Contato" },
+  { href: import.meta.env.BASE_URL, label: "Início" },
+  { href: `${import.meta.env.BASE_URL.replace(/\/$/, "")}/catalogo`, label: "Catálogo" },
+  { href: `${import.meta.env.BASE_URL.replace(/\/$/, "")}/sobre`, label: "Sobre" },
+  { href: `${import.meta.env.BASE_URL.replace(/\/$/, "")}/portfolio`, label: "Portfólio" },
+  { href: `${import.meta.env.BASE_URL.replace(/\/$/, "")}/contato`, label: "Contato" },
 ];
 ---
 
@@ -18,7 +18,7 @@ const nav = [
     <a href={import.meta.env.BASE_URL} class="flex items-center gap-3">
       <div class="size-10 overflow-hidden rounded-xl bg-white/60 ring-1 ring-black/5">
         <img
-          src={`${import.meta.env.BASE_URL}images/brand/logo.webp`}
+          src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/brand/logo.webp`}
           alt="Logo Casa Nacoli"
           class="h-full w-full object-cover"
         />
@@ -40,7 +40,11 @@ const nav = [
     </nav>
 
     <div class="flex items-center gap-4">
-      <Button href={`${import.meta.env.BASE_URL}contato`} size="sm" class="hidden sm:inline-flex">
+      <Button
+        href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/contato`}
+        size="sm"
+        class="hidden sm:inline-flex"
+      >
         Pedir orçamento
       </Button>
       {/* Mobile menu button could go here */}
