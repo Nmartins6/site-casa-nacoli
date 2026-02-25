@@ -5,11 +5,12 @@ category: "servicos"
 featured: true
 seoTitle: "Artes digitais em Lajeado/RS | Casa Nacoli"
 seoDescription: "Criação de artes digitais — posts, banners, convites e materiais promocionais. Lajeado/RS."
-coverImage: "/images/products/arte-digital-1.png"
+coverImage: "/images/products/artes_digitais/artes_digitais.webp"
 gallery:
-  - "/images/products/arte-digital-2.png"
-  - "/images/products/arte-digital-3.png"
-  - "/images/products/arte-digital-4.png"
+  - "/images/products/artes_digitais/artes_digitais_1.webp"
+  - "/images/products/artes_digitais/artes_digitais_2.webp"
+  - "/images/products/artes_digitais/artes_digitais_3.webp"
+  - "/images/products/artes_digitais/artes_digitais_4.webp"
 options:
   - key: "type"
     label: "Tipo"
