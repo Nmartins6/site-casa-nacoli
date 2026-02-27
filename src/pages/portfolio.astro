@@ -17,22 +17,49 @@ const description = "Veja nossos trabalhos recentes de design e impressão artes
 
   <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {
-      Array.from({ length: 9 }).map((_, i) => (
-        <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5">
-          <div class="flex h-full w-full items-center justify-center text-black/20">
-            <span class="sr-only">Projeto {i + 1}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-            >
-              <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-40,88a40,40,0,0,1-40,40H40v-4.69l32-32,32,32a8,8,0,0,0,11.31,0L144,134.63Zm40,72H150.63l-45.32-45.31a8,8,0,0,0-11.31,0L40,209.37V200a24,24,0,0,1,24-24h72a24,24,0,0,0,24-24V144a24,24,0,0,1,56.8-2.61ZM56,40a24,24,0,0,1,24,24v8a24,24,0,0,0,24,24h8a24,24,0,0,1,24,24v64h64V56H56ZM96,64a8,8,0,0,0-8-8H64v24a8,8,0,0,0,8,8h24V64Z" />
-            </svg>
-          </div>
-          <div class="absolute inset-0 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100 flex items-center justify-center">
-            <span class="font-medium text-white">Projeto Exemplo {i + 1}</span>
+      [
+        {
+          title: "Agendas Personalizadas",
+          category: "Papelaria",
+          image: "agendas-personalizadas/agendas-personalizadas.webp",
+        },
+        {
+          title: "Canecas de Porcelana",
+          category: "Brindes",
+          image: "caneca-personalizada/caneca-personalizada-3.webp",
+        },
+        {
+          title: "Ecobags em Algodão",
+          category: "Têxtil",
+          image: "ecobag-personalizada/ecobag-personalizada.webp",
+        },
+        {
+          title: "Identidade Visual",
+          category: "Design",
+          image: "identidade-visual/identidade-visual.webp",
+        },
+        {
+          title: "Brindes Corporativos",
+          category: "Brindes",
+          image: "brindes-corporativos/brindes-corporativos.webp",
+        },
+        {
+          title: "Azulejos Decorativos",
+          category: "Decoração",
+          image: "azulejo-personalizado/azulejo-personalizado.webp",
+        },
+      ].map((item) => (
+        <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5 shadow-md">
+          <img
+            src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/products/${item.image}`}
+            alt={item.title}
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+            <span class="text-xs font-semibold uppercase tracking-wider text-[var(--cn-terracotta)]">
+              {item.category}
+            </span>
+            <span class="mt-1 text-lg font-medium text-white px-4 text-center">{item.title}</span>
           </div>
         </div>
       ))
