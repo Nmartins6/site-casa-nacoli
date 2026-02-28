@@ -27,9 +27,16 @@ const whatsappHref = buildWhatsAppLink(WHATSAPP_MESSAGE_BUDGET);
       Transformamos suas ideias em papel e pixel com cuidado artesanal.
     </p>
 
-    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <Button href={whatsappHref} target="_blank" size="lg"> Pedir orçamento </Button>
-      <Button href={`${import.meta.env.BASE_URL}catalogo`} variant="outline" size="lg">
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row px-4">
+      <Button href={whatsappHref} target="_blank" size="md" class="w-full sm:w-auto sm:size-lg">
+        Pedir orçamento
+      </Button>
+      <Button
+        href={`${import.meta.env.BASE_URL}catalogo`}
+        variant="outline"
+        size="md"
+        class="w-full sm:w-auto sm:size-lg"
+      >
         Ver catálogo
       </Button>
     </div>

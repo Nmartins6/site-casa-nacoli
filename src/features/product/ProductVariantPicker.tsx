@@ -84,7 +84,7 @@ export default function ProductVariantPicker(props: Props) {
           rel="noreferrer"
           className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--cn-ink)] px-8 text-base font-medium text-[var(--cn-cream)] transition-colors hover:bg-black/80"
         >
-          Pedir orçamento no WhatsApp
+          Pedir orçamento
         </a>
       </div>
     );
@@ -149,7 +149,7 @@ export default function ProductVariantPicker(props: Props) {
           rel="noreferrer"
           className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--cn-ink)] px-6 text-base font-medium text-[var(--cn-cream)] transition-all hover:bg-black/80 hover:scale-[1.02]"
         >
-          Pedir orçamento no WhatsApp
+          Pedir orçamento
         </a>
 
         <button
