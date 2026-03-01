@@ -23,16 +23,13 @@ variants:
     options: { type: "Centro de mesa" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de decoração de mesa. Tipo: {{type}}."
+observations:
+  - "Arte personalizada conforme seu tema"
+  - "Impressão em materiais resistentes"
+  - "Diversos formatos e tamanhos disponíveis"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Decorações de mesa
 
 Decorações de mesa impressas para personalizar festas, eventos corporativos e confraternizações.
-
-### Observações
-
-- Arte personalizada conforme seu tema
-- Impressão em materiais resistentes
-- Diversos formatos e tamanhos disponíveis
-
-> Valores e prazos: sob consulta.

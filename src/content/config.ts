@@ -53,6 +53,9 @@ const products = defineCollection({
     variants: z.array(variantSchema).default([]),
 
     whatsappMessage: z.string().min(1).optional(),
+
+    observations: z.array(z.string()).default([]),
+    pricingNote: z.string().optional(),
   }),
 });
 

@@ -23,16 +23,13 @@ variants:
     options: { size: "Grande" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de quebra-cabeça personalizado. Tamanho: {{size}}."
+observations:
+  - "Personalização com qualquer foto"
+  - "Diversos tamanhos e números de peças"
+  - "Embalagem especial disponível"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Quebra-cabeças personalizados
 
 Transforme suas fotos favoritas em quebra-cabeças únicos. Presente criativo para todas as idades.
-
-### Observações
-
-- Personalização com qualquer foto
-- Diversos tamanhos e números de peças
-- Embalagem especial disponível
-
-> Valores e prazos: sob consulta.

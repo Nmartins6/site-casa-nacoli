@@ -28,16 +28,13 @@ variants:
     options: { material: "MDF" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de chaveiros personalizados. Material: {{material}}."
+observations:
+  - "Diversos materiais disponíveis"
+  - "Personalização com fotos, logos ou artes"
+  - "Pedidos em quantidade com desconto"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Chaveiros personalizados
 
 Chaveiros personalizados com sua foto, logo ou arte — perfeitos para brindes, lembranças de eventos e presentes criativos.
-
-### Observações
-
-- Diversos materiais disponíveis
-- Personalização com fotos, logos ou artes
-- Pedidos em quantidade com desconto
-
-> Valores e prazos: sob consulta.

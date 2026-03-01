@@ -23,16 +23,13 @@ variants:
     options: { size: "20x30" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de impressão de fotografias. Tamanho: {{size}}."
+observations:
+  - "Papel fotográfico premium"
+  - "Impressão em alta resolução"
+  - "Tamanhos especiais sob consulta"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Fotografias
 
 Impressão de fotografias em papel fotográfico de alta qualidade. Eternize seus melhores momentos.
-
-### Observações
-
-- Papel fotográfico premium
-- Impressão em alta resolução
-- Tamanhos especiais sob consulta
-
-> Valores e prazos: sob consulta.

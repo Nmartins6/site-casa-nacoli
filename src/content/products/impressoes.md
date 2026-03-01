@@ -26,16 +26,13 @@ variants:
     options: { format: "A4", paper: "Couchê 300g" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de impressão. Formato: {{format}}, papel: {{paper}}."
+observations:
+  - "Impressão em alta resolução"
+  - "Diversos papéis e acabamentos disponíveis"
+  - "Formatos personalizados sob consulta"
+pricingNote: "Valores e prazos: sob consulta (dependendo de quantidade e formato)."
 ---
 
 ## Impressões
 
 Impressões de alta qualidade para suas necessidades — flyers, banners, convites, materiais promocionais e muito mais.
-
-### Observações
-
-- Impressão em alta resolução
-- Diversos papéis e acabamentos disponíveis
-- Formatos personalizados sob consulta
-
-> Valores e prazos: sob consulta (dependendo de quantidade e formato).

@@ -29,16 +29,13 @@ variants:
     options: { size: "A4", type: "Capa flexível" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de caderno personalizado. Tamanho: {{size}}, tipo: {{type}}."
+observations:
+  - "Capa personalizada com sua arte ou fotos"
+  - "Opções de capa dura ou flexível"
+  - "Miolo pautado ou em branco"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Cadernos personalizados
 
 Cadernos com capa personalizada — ideais para presentes criativos, brindes corporativos ou uso pessoal.
-
-### Observações
-
-- Capa personalizada com sua arte ou fotos
-- Opções de capa dura ou flexível
-- Miolo pautado ou em branco
-
-> Valores e prazos: sob consulta.

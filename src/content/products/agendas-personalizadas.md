@@ -23,16 +23,13 @@ variants:
     options: { size: "A4" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de agenda personalizada. Tamanho: {{size}}."
+observations:
+  - "Capa personalizada com sua arte ou fotos"
+  - "Miolo com planejamento diário/semanal"
+  - "Acabamento premium"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Agendas personalizadas
 
 Agendas personalizadas com capa exclusiva para organizar seu dia com estilo. Ideal para uso pessoal ou como brinde corporativo.
-
-### Observações
-
-- Capa personalizada com sua arte ou fotos
-- Miolo com planejamento diário/semanal
-- Acabamento premium
-
-> Valores e prazos: sob consulta.

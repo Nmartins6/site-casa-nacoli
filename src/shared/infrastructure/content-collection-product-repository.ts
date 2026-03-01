@@ -27,6 +27,8 @@ export class ContentCollectionProductRepository implements ProductRepository {
         available: v.available,
       })),
       whatsappMessage: collectionItem.data.whatsappMessage,
+      observations: collectionItem.data.observations,
+      pricingNote: collectionItem.data.pricingNote,
       render: collectionItem.render,
     };
   }

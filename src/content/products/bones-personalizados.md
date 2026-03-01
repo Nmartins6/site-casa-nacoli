@@ -24,16 +24,13 @@ variants:
     options: { type: "Aba reta" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de bonés personalizados. Tipo: {{type}}."
+observations:
+  - "Opções de bordado ou sublimação"
+  - "Diversos modelos e cores"
+  - "Ajuste regulável"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Bonés personalizados
 
 Bonés personalizados com bordado ou sublimação para sua marca, equipe ou evento.
-
-### Observações
-
-- Opções de bordado ou sublimação
-- Diversos modelos e cores
-- Ajuste regulável
-
-> Valores e prazos: sob consulta.

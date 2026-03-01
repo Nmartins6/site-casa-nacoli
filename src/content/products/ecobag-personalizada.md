@@ -25,16 +25,13 @@ variants:
     options: { size: "Grande" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de ecobag personalizada. Tamanho: {{size}}."
+observations:
+  - "Material resistente e reutilizável"
+  - "Personalização frente e verso"
+  - "Ideal para eventos, feiras e brindes"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Ecobag personalizada
 
 Ecobags personalizadas — uma opção sustentável e estilosa para divulgar sua marca ou presentear.
-
-### Observações
-
-- Material resistente e reutilizável
-- Personalização frente e verso
-- Ideal para eventos, feiras e brindes
-
-> Valores e prazos: sob consulta.

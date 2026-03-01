@@ -29,13 +29,11 @@ variants:
     options: { size: "GG" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de camisetas personalizadas. Tamanho: {{size}}. Quantidade: {{quantity}}."
+observations:
+  - "Podemos personalizar frente/costas (conforme orçamento)"
+  - "Tamanhos adicionais e cores: sob consulta"
 ---
 
 ## Camisetas personalizadas
 
 Camisetas personalizadas para empresas, eventos, uniformes e presentes.
-
-### Observações
-
-- Podemos personalizar frente/costas (conforme orçamento)
-- Tamanhos adicionais e cores: sob consulta

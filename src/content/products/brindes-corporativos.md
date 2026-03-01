@@ -28,16 +28,13 @@ variants:
     options: { type: "Personalizado" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de brindes corporativos. Tipo: {{type}}."
+observations:
+  - "Personalização com logotipo e cores da marca"
+  - "Kits sob medida para sua necessidade"
+  - "Descontos progressivos por quantidade"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Brindes corporativos
 
 Brindes corporativos personalizados com a identidade da sua empresa. Canetas, blocos, kits e muito mais.
-
-### Observações
-
-- Personalização com logotipo e cores da marca
-- Kits sob medida para sua necessidade
-- Descontos progressivos por quantidade
-
-> Valores e prazos: sob consulta.

@@ -25,16 +25,13 @@ variants:
     options: { type: "Térmico" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de copos personalizados. Tipo: {{type}}."
+observations:
+  - "Personalização com fotos, logos ou artes"
+  - "Diversos modelos e tamanhos"
+  - "Ideal para festas e brindes corporativos"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Copos personalizados
 
 Copos personalizados com sublimação para festas, eventos, brindes e uso pessoal.
-
-### Observações
-
-- Personalização com fotos, logos ou artes
-- Diversos modelos e tamanhos
-- Ideal para festas e brindes corporativos
-
-> Valores e prazos: sob consulta.

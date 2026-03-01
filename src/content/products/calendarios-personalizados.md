@@ -26,16 +26,13 @@ variants:
     options: { type: "Folhinha" }
     available: true
 whatsappMessage: "Olá! Quero orçamento de calendário personalizado. Tipo: {{type}}."
+observations:
+  - "Personalização completa com suas fotos"
+  - "Diversos formatos disponíveis"
+  - "Ideal para presentes e brindes de fim de ano"
+pricingNote: "Valores e prazos: sob consulta."
 ---
 
 ## Calendários personalizados
 
 Calendários personalizados com suas fotos favoritas, datas comemorativas e arte exclusiva.
-
-### Observações
-
-- Personalização completa com suas fotos
-- Diversos formatos disponíveis
-- Ideal para presentes e brindes de fim de ano
-
-> Valores e prazos: sob consulta.

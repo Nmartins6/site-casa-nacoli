@@ -35,6 +35,8 @@ export interface Product {
   options: ProductOption[];
   variants: ProductVariant[];
   whatsappMessage?: string;
+  observations?: string[];
+  pricingNote?: string;
   bodyContent?: string;
   render?: () => Promise<{ Content: any }>;
 }
