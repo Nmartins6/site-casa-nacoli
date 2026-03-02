@@ -87,33 +87,40 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 
         {
           product.observations && product.observations.length > 0 && (
-            <div class="mt-12">
-              <h3 class="text-xs font-semibold uppercase tracking-widest text-[var(--cn-terracotta)] mb-4">
-                Destaques &amp; Observações
-              </h3>
-              <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div class="mt-10 border-t border-black/8 pt-6">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/35 mb-3">
+                Observações
+              </p>
+              <ul class="space-y-2">
                 {product.observations.map((obs) => (
-                  <li class="flex items-start gap-3 rounded-xl border border-black/6 bg-[var(--cn-cream)] px-4 py-3">
+                  <li class="flex items-baseline gap-2.5 text-sm text-black/60 leading-relaxed">
                     <span
-                      class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--cn-terracotta)]"
+                      class="shrink-0 text-[var(--cn-terracotta)] opacity-60"
                       aria-hidden="true"
-                    />
-                    <span class="text-sm leading-snug text-[var(--cn-ink)]">{obs}</span>
+                    >
+                      —
+                    </span>
+                    {obs}
                   </li>
                 ))}
               </ul>
               {product.pricingNote && (
-                <p class="mt-4 text-xs font-medium italic text-black/50">{product.pricingNote}</p>
+                <p class="mt-4 text-[11px] italic text-black/35">{product.pricingNote}</p>
               )}
             </div>
           )
         }
 
-        <article
-          class="prose prose-zinc prose-headings:font-semibold prose-headings:text-[var(--cn-ink)] prose-a:text-[var(--cn-terracotta)] mt-12 max-w-none"
-        >
-          {Content && <Content />}
-        </article>
+        {
+          Content && (
+            <div class="mt-10 border-t border-black/8 pt-6 text-sm text-black/60 leading-relaxed [&_h1]:hidden [&_h2]:hidden [&_h3]:hidden [&_p]:mt-0 [&_p+p]:mt-2 [&_a]:text-[var(--cn-terracotta)] [&_a:hover]:underline [&_strong]:text-black/70 [&_strong]:font-medium">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/35 mb-3">
+                Sobre o produto
+              </p>
+              <Content />
+            </div>
+          )
+        }
       </div>
     </div>
 
