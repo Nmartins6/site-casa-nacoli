@@ -94,7 +94,7 @@ const featuredProducts = await container.productRepository.getFeatured();
   .carousel-track {
     display: flex;
     gap: 1.5rem;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
   }
 
@@ -110,9 +110,9 @@ const featuredProducts = await container.productRepository.getFeatured();
     filter: blur(1.5px);
     transform: scale(0.88);
     transition:
-      opacity 0.5s ease,
-      filter 0.5s ease,
-      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity 0.8s ease,
+      filter 0.8s ease,
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .carousel-slide.active {
@@ -303,10 +303,10 @@ const featuredProducts = await container.productRepository.getFeatured();
     /* ── Auto-play ── */
 
     function startAuto() {
+      if (timer) clearInterval(timer);
       timer = setInterval(() => go(current + 1), AUTO_MS);
     }
     function resetAuto() {
-      if (timer) clearInterval(timer);
       startAuto();
     }
 
