@@ -1,10 +1,10 @@
 ---
 title: "Caneca personalizada"
-summary: "Canecas personalizadas em sublimação — branca, preta e mágica. Ideal para presentes e divulgação."
+summary: "Canecas personalizadas em sublimação ou DTF, em diversos modelos e cores. Ideal para presentes e divulgação."
 category: "personalizados"
 featured: true
 seoTitle: "Caneca personalizada em Lajeado/RS | Casa Nacoli"
-seoDescription: "Caneca personalizada branca, preta ou mágica. Produção em Lajeado/RS. Solicite um orçamento no WhatsApp."
+seoDescription: "Caneca personalizada em sublimação ou DTF, em diversos modelos e cores. Produção em Lajeado/RS. Solicite um orçamento no WhatsApp."
 coverImage: "/images/products/caneca-personalizada/caneca-personalizada.webp"
 images:
   - "/images/products/caneca-personalizada/caneca-personalizada-1.webp"

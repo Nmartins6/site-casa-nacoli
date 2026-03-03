@@ -1,6 +1,6 @@
 ---
 title: "Mousepad personalizado"
-summary: "Mousepads ergonômicos e modernos com sua estampa. Ideal para escritório e setups gamer."
+summary: "Mousepads modernos com sua estampa. Ideal para escritório e setups gamer."
 category: "personalizados"
 featured: true
 seoTitle: "Mousepad personalizado em Lajeado/RS | Casa Nacoli"
