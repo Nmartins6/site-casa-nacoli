@@ -1,10 +1,10 @@
 ---
 title: "Calendários personalizados"
-summary: "Calendários personalizados com suas fotos e datas especiais. Ideal para presentes e brindes."
+summary: "Calendários personalizados com a sua arte e datas especiais. Ideal para presentes e brindes."
 category: "personalizados"
 featured: true
 seoTitle: "Calendários personalizados em Lajeado/RS | Casa Nacoli"
-seoDescription: "Calendários personalizados com fotos e datas especiais. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
+seoDescription: "Calendários personalizados com a arte e datas especiais. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
 coverImage: "/images/products/calendarios-personalizados/calendarios-personalizados.webp"
 images:
   - "/images/products/calendarios-personalizados/calendarios-personalizados-1.webp"

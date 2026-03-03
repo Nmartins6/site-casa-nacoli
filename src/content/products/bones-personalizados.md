@@ -1,10 +1,10 @@
 ---
 title: "Bonés personalizados"
-summary: "Bonés personalizados com bordado ou sublimação. Ideal para equipes, eventos e marcas."
+summary: "Bonés personalizados com bordado, DTF, ou sublimação. Ideal para equipes, eventos e marcas."
 category: "personalizados"
 featured: true
 seoTitle: "Bonés personalizados em Lajeado/RS | Casa Nacoli"
-seoDescription: "Bonés personalizados com bordado ou sublimação. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
+seoDescription: "Bonés personalizados com bordado, DTF ou sublimação. Produção em Lajeado/RS. Solicite orçamento no WhatsApp."
 coverImage: "/images/products/bones-personalizados/bones-personalizados.webp"
 images:
   - "/images/products/bones-personalizados/bones-personalizados-1.webp"
