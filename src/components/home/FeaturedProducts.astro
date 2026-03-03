@@ -25,10 +25,45 @@ const featuredProducts = await container.productRepository.getFeatured();
         </a>
       </div>
 
-      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredProducts.map((p) => (
-          <ProductCard product={p} class="group block" />
-        ))}
+      {/* Wrapper clips overflow but uses padding so side cards peek */}
+      <div class="carousel-root mt-10" id="carousel-root">
+        <div class="carousel-track" id="carousel-track">
+          {featuredProducts.map((p, i) => (
+            <div class="carousel-slide" data-index={i}>
+              <ProductCard product={p} class="group block h-full" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <div class="carousel-dots" id="carousel-dots" />
+        <button class="carousel-btn" id="carousel-next" aria-label="Próximo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
 
       <div class="mt-8 text-center sm:hidden">
@@ -39,3 +74,296 @@ const featuredProducts = await container.productRepository.getFeatured();
     </Section>
   )
 }
+
+<style>
+  /* ── Root ── */
+  .carousel-root {
+    overflow: hidden;
+    /* Fade edges so side cards look "behind" */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  /* ── Track ── */
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* ── Slides ──
+     Width is set by JS after layout, but we give a CSS fallback.
+     Each slide = 60% of root so exactly 2 × 20% peek from sides.
+  */
+  .carousel-slide {
+    flex: 0 0 38%;
+    min-width: 0;
+    /* Default: dimmed / scaled back */
+    opacity: 0.42;
+    filter: blur(1.5px);
+    transform: scale(0.88);
+    transition:
+      opacity 0.5s ease,
+      filter 0.5s ease,
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+  }
+
+  @media (max-width: 639px) {
+    .carousel-slide {
+      flex: 0 0 70%;
+    }
+  }
+
+  /* ── Controls ── */
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+    background: white;
+    color: var(--cn-ink);
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      border-color 0.2s,
+      box-shadow 0.2s,
+      color 0.2s;
+  }
+
+  .carousel-btn:hover {
+    background: var(--cn-terracotta);
+    border-color: var(--cn-terracotta);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.28;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ── Dots ── */
+  .carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 639px) {
+    .carousel-dots {
+      display: none;
+    }
+  }
+
+  .carousel-dots :global(.dot) {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.22);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition:
+      background 0.25s,
+      width 0.25s;
+  }
+
+  .carousel-dots :global(.dot.active) {
+    background: var(--cn-terracotta);
+    width: 1.25rem;
+  }
+</style>
+
+<script>
+  (function () {
+    const AUTO_MS = 3000;
+    // How many slides to clone on each side (covers up to 2 visible neighbors)
+    const CLONES = 3;
+
+    const root = document.getElementById("carousel-root")!;
+    const track = document.getElementById("carousel-track")!;
+    const dotsEl = document.getElementById("carousel-dots")!;
+    const prevBtn = document.getElementById("carousel-prev") as HTMLButtonElement;
+    const nextBtn = document.getElementById("carousel-next") as HTMLButtonElement;
+
+    if (!root || !track || !dotsEl || !prevBtn || !nextBtn) return;
+
+    const realSlides = Array.from(track.children) as HTMLElement[];
+    const n = realSlides.length;
+    if (!n) return;
+
+    /* ── Clone slides ── */
+    // Prepend: clones of last CLONES real slides (in order)
+    for (let i = CLONES - 1; i >= 0; i--) {
+      const clone = realSlides[((i % n) + n) % n].cloneNode(true) as HTMLElement;
+      clone.setAttribute("aria-hidden", "true");
+      clone.dataset.cloneSide = "before";
+      track.prepend(clone);
+    }
+    // Append: clones of first CLONES real slides (in order)
+    for (let i = 0; i < CLONES; i++) {
+      const clone = realSlides[i % n].cloneNode(true) as HTMLElement;
+      clone.setAttribute("aria-hidden", "true");
+      clone.dataset.cloneSide = "after";
+      track.append(clone);
+    }
+
+    const allSlides = Array.from(track.children) as HTMLElement[];
+    // Real slides now live at indices [CLONES .. CLONES + n - 1]
+    let current = CLONES; // start at first real slide
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    /* ── Helpers ── */
+
+    function slideW() {
+      return allSlides[0].offsetWidth;
+    }
+    function gapW() {
+      return parseFloat(getComputedStyle(track).gap) || 24;
+    }
+    function step() {
+      return slideW() + gapW();
+    }
+
+    function offsetFor(i: number) {
+      const sw = slideW();
+      return i * step() - (root.offsetWidth - sw) / 2;
+    }
+
+    function realIdx() {
+      // Map current (which may be a clone position) to a 0-based real index
+      return (((current - CLONES) % n) + n) % n;
+    }
+
+    function applyClasses() {
+      allSlides.forEach((s, i) => s.classList.toggle("active", i === current));
+    }
+
+    function updateDots() {
+      const ri = realIdx();
+      dotsEl.querySelectorAll<HTMLElement>(".dot").forEach((d, i) => {
+        d.classList.toggle("active", i === ri);
+      });
+    }
+
+    function moveTo(idx: number, animated: boolean) {
+      current = idx;
+      if (!animated) track.style.transition = "none";
+      track.style.transform = `translateX(-${offsetFor(current)}px)`;
+      applyClasses();
+      updateDots();
+      // Restore transition on next frame so the instant snap doesn't bleed into the next move
+      if (!animated)
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => {
+            track.style.transition = "";
+          }),
+        );
+    }
+
+    function go(idx: number) {
+      moveTo(idx, true);
+    }
+
+    /* After each animated transition, snap back if we're on a clone */
+    track.addEventListener("transitionend", (e) => {
+      if ((e.target as HTMLElement) !== track) return;
+      if (current < CLONES) {
+        moveTo(current + n, false); // was on before-clone → jump to real end
+      } else if (current >= CLONES + n) {
+        moveTo(current - n, false); // was on after-clone → jump to real start
+      }
+    });
+
+    /* ── Auto-play ── */
+
+    function startAuto() {
+      timer = setInterval(() => go(current + 1), AUTO_MS);
+    }
+    function resetAuto() {
+      if (timer) clearInterval(timer);
+      startAuto();
+    }
+
+    /* ── Events ── */
+
+    prevBtn.addEventListener("click", () => {
+      go(current - 1);
+      resetAuto();
+    });
+    nextBtn.addEventListener("click", () => {
+      go(current + 1);
+      resetAuto();
+    });
+    root.addEventListener("mouseenter", () => {
+      if (timer) clearInterval(timer);
+    });
+    root.addEventListener("mouseleave", () => startAuto());
+
+    let startX = 0;
+    track.addEventListener(
+      "touchstart",
+      (e) => {
+        startX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+    track.addEventListener("touchend", (e) => {
+      const d = startX - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) {
+        go(current + (d > 0 ? 1 : -1));
+        resetAuto();
+      }
+    });
+
+    window.addEventListener("resize", () => moveTo(current, false));
+
+    /* ── Dots (only for real slides) ── */
+
+    realSlides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "dot";
+      dot.setAttribute("aria-label", `Item ${i + 1}`);
+      dot.addEventListener("click", () => {
+        go(CLONES + i);
+        resetAuto();
+      });
+      dotsEl.appendChild(dot);
+    });
+
+    /* ── Remove disabled — infinite loop never reaches an end ── */
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+
+    /* ── Init after layout ── */
+    requestAnimationFrame(() => {
+      moveTo(CLONES, false);
+      startAuto();
+    });
+  })();
+</script>
