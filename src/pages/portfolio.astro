@@ -4,9 +4,117 @@ import Section from "@/components/ui/Section.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import Button from "@/components/ui/Button.astro";
 import { SITE } from "@/shared/config/site";
+import { DIGITAL_PORTFOLIO } from "@/shared/data/constants";
 
 const title = `Portfólio | ${SITE.name}`;
 const description = "Veja nossos trabalhos recentes de design e impressão artesanal.";
+
+const physicalProducts = [
+  {
+    title: "Agendas Personalizadas",
+    category: "Papelaria",
+    image: "agendas-personalizadas/agendas-personalizadas.webp",
+  },
+  {
+    title: "Canecas Personalizadas",
+    category: "Brindes",
+    image: "caneca-personalizada/caneca-personalizada.webp",
+  },
+  {
+    title: "Ecobags em Algodão",
+    category: "Têxtil",
+    image: "ecobag-personalizada/ecobag-personalizada.webp",
+  },
+  {
+    title: "Identidade Visual",
+    category: "Design",
+    image: "identidade-visual/identidade-visual.webp",
+  },
+  {
+    title: "Brindes Corporativos",
+    category: "Brindes",
+    image: "brindes-corporativos/brindes-corporativos.webp",
+  },
+  {
+    title: "Azulejos Decorativos",
+    category: "Decoração",
+    image: "azulejo-personalizado/azulejo-personalizado.webp",
+  },
+  {
+    title: "Calendários Personalizados",
+    category: "Papelaria",
+    image: "calendarios-personalizados/calendarios-personalizados.webp",
+  },
+  {
+    title: "Chaveiros Personalizados",
+    category: "Brindes",
+    image: "chaveiros-personalizados/chaveiros-personalizados.webp",
+  },
+  {
+    title: "Cartões de Visita",
+    category: "Papelaria",
+    image: "cartoes-de-visita/cartoes-de-visita.png",
+  },
+  {
+    title: "Camisetas Personalizadas",
+    category: "Têxtil",
+    image: "camisetas-personalizadas/camisetas-personalizadas.png",
+  },
+  {
+    title: "Copos Personalizados",
+    category: "Brindes",
+    image: "copos-personalizados/copos-personalizados.png",
+  },
+  {
+    title: "Cadernos Personalizados",
+    category: "Papelaria",
+    image: "cadernos-personalizados/cadernos-personalizados.webp",
+  },
+  { title: "Artes Digitais", category: "Design", image: "artes-digitais/artes-digitais.webp" },
+  {
+    title: "Bonés Personalizados",
+    category: "Têxtil",
+    image: "bones-personalizados/bones-personalizados.webp",
+  },
+  {
+    title: "Decorações de Mesa",
+    category: "Decoração",
+    image: "decoracoes-de-mesa/decoracoes-de-mesa.webp",
+  },
+  { title: "Fotografias", category: "Impressão", image: "fotografias/fotografias.webp" },
+  {
+    title: "Ímãs de Geladeira",
+    category: "Brindes",
+    image: "ima-de-geladeira/ima-de-geladeira.webp",
+  },
+  { title: "Impressões", category: "Impressão", image: "impressoes/impressoes.webp" },
+  {
+    title: "Mousepad Personalizado",
+    category: "Brindes",
+    image: "mousepad-personalizado/mousepad-personalizado.webp",
+  },
+  {
+    title: "Papelaria Personalizada",
+    category: "Papelaria",
+    image: "papelaria-personalizada/papelaria-personalizada.png",
+  },
+  {
+    title: "Quadros Decorativos",
+    category: "Decoração",
+    image: "quadro-decorativo/quadro-decorativo.webp",
+  },
+  { title: "Quebra-Cabeças", category: "Brindes", image: "quebra-cabecas/quebra-cabecas.webp" },
+  {
+    title: "Sacolas Personalizadas",
+    category: "Têxtil",
+    image: "sacolas-personalizadas/sacolas-personalizadas.webp",
+  },
+  {
+    title: "Squeeze Personalizado",
+    category: "Brindes",
+    image: "squeeze-personalizado/squeeze-personalizado.png",
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/portfolio">
@@ -15,58 +123,109 @@ const description = "Veja nossos trabalhos recentes de design e impressão artes
     description="Uma seleção de projetos que amamos criar. Identidades visuais, convites e papelaria que contam histórias."
   />
 
-  <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      [
-        {
-          title: "Agendas Personalizadas",
-          category: "Papelaria",
-          image: "agendas-personalizadas/agendas-personalizadas.webp",
-        },
-        {
-          title: "Canecas de Porcelana",
-          category: "Brindes",
-          image: "caneca-personalizada/caneca-personalizada-3.webp",
-        },
-        {
-          title: "Ecobags em Algodão",
-          category: "Têxtil",
-          image: "ecobag-personalizada/ecobag-personalizada.webp",
-        },
-        {
-          title: "Identidade Visual",
-          category: "Design",
-          image: "identidade-visual/identidade-visual.webp",
-        },
-        {
-          title: "Brindes Corporativos",
-          category: "Brindes",
-          image: "brindes-corporativos/brindes-corporativos.webp",
-        },
-        {
-          title: "Azulejos Decorativos",
-          category: "Decoração",
-          image: "azulejo-personalizado/azulejo-personalizado.webp",
-        },
-      ].map((item) => (
-        <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5 shadow-md">
-          <img
-            src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/products/${item.image}`}
-            alt={item.title}
-            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
-            <span class="text-xs font-semibold uppercase tracking-wider text-[var(--cn-terracotta)]">
-              {item.category}
-            </span>
-            <span class="mt-1 text-lg font-medium text-white px-4 text-center">{item.title}</span>
-          </div>
-        </div>
-      ))
-    }
-  </div>
+  <!-- ── Gráfica & Impressão ─────────────────────────────── -->
+  <Section containerClass="max-w-screen-xl">
+    <div class="mb-10 flex items-center gap-4">
+      <h2 class="text-2xl font-semibold text-[var(--cn-ink)]">Gráfica &amp; Impressão</h2>
+      <div class="h-px flex-1 bg-black/10"></div>
+    </div>
 
-  <div class="mt-16 text-center">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        physicalProducts.map((item) => (
+          <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5 shadow-md">
+            <img
+              src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/products/${item.image}`}
+              alt={item.title}
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+              <span class="text-xs font-semibold uppercase tracking-wider text-[var(--cn-terracotta)]">
+                {item.category}
+              </span>
+              <span class="mt-1 px-4 text-center text-lg font-medium text-white">{item.title}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- ── Digital & Design ───────────────────────────────── -->
+  <Section theme="cream" containerClass="max-w-screen-xl">
+    <div class="mb-10 flex items-center gap-4">
+      <h2 class="text-2xl font-semibold text-[var(--cn-ink)]">Digital &amp; Design</h2>
+      <div class="h-px flex-1 bg-black/10"></div>
+    </div>
+
+    {
+      DIGITAL_PORTFOLIO.length === 0 ? (
+        <div class="flex min-h-48 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-black/15 text-center text-black/40">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            class="mb-3 size-10 opacity-40"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <path d="M8 21h8M12 17v4" />
+          </svg>
+          <p class="text-sm">
+            Nenhum projeto digital publicado ainda.
+            <br />
+            Adicione itens em <code class="text-xs">DIGITAL_PORTFOLIO</code> em{" "}
+            <code class="text-xs">constants.ts</code>.
+          </p>
+        </div>
+      ) : (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {DIGITAL_PORTFOLIO.map((item) => (
+            <div
+              class={`group relative aspect-video overflow-hidden rounded-xl shadow-md ${item.contain ? "bg-white" : "bg-black/5"}`}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/images/digital/${item.image}`}
+                alt={item.title}
+                class={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${item.contain ? "object-contain p-8" : "object-cover group-hover:scale-110"}`}
+              />
+              <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--cn-terracotta)]">
+                  {item.category}
+                </span>
+                <span class="mt-1 px-4 text-center text-lg font-medium text-white">
+                  {item.title}
+                </span>
+                {item.url && (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="mt-3 flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/25"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      class="size-3.5"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    Ver projeto
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    }
+  </Section>
+
+  <div class="mt-4 pb-24 text-center">
     <p class="mb-6 text-black/70">Veja mais do nosso dia a dia no Instagram.</p>
     <Button href={SITE.social.instagram} variant="outline" target="_blank" rel="noreferrer">
       Seguir @casanacoli
