@@ -20,37 +20,62 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Enviam para outras cidades?",
-    a: "Sim, enviamos via Correios ou transportadora. O frete é calculado conforme o CEP.",
+    a: "Sim, enviamos via correios ou transportadora. O frete é calculado conforme o CEP.",
   },
 ];
 
-/**
- * Portfólio Digital — sites, logos, artes e identidades visuais desenvolvidos.
- * Para adicionar um novo trabalho, basta incluir um novo objeto nesta lista.
- *
- * Campos:
- *   title    — nome do projeto
- *   category — tipo: "Site", "Logo", "Arte", "Identidade Visual", etc.
- *   image    — caminho relativo a /images/digital/ (adicione a imagem lá)
- *   url      — (opcional) link para o projeto ao vivo
- */
-export const DIGITAL_PORTFOLIO: {
+type DigitalItem = {
   title: string;
   category: string;
   image: string;
   contain?: boolean;
   url?: string;
-}[] = [
+};
+
+/**
+ * Sites desenvolvidos.
+ * Campos:
+ *   title    — nome do projeto
+ *   category — tipo (ex: "Institucional", "E-commerce")
+ *   image    — caminho relativo a /images/digital/
+ *   url      — (opcional) link ao vivo
+ */
+export const DIGITAL_PORTFOLIO_SITES: DigitalItem[] = [
   {
     title: "Site Casa Nacoli",
-    category: "Site",
+    category: "Institucional",
     image: "casa-nacoli-logo.webp",
     contain: true,
     url: "https://casanacoli.com.br",
   },
   {
     title: "Site Slim Pé",
-    category: "Site",
+    category: "Institucional",
+    image: "logo.webp",
+    contain: true,
+    url: "https://slimpe.com",
+  },
+];
+
+/**
+ * Trabalhos de design (logos, artes, identidades visuais, etc.).
+ * Campos:
+ *   title    — nome do projeto
+ *   category — tipo (ex: "Logo", "Identidade Visual", "Arte")
+ *   image    — caminho relativo a /images/digital/
+ *   url      — (opcional) link ao vivo
+ */
+export const DIGITAL_PORTFOLIO_DESIGN: DigitalItem[] = [
+  {
+    title: "Identidade Visual Casa Nacoli",
+    category: "Identidade Visual",
+    image: "casa-nacoli-logo.webp",
+    contain: true,
+    url: "https://casanacoli.com.br",
+  },
+  {
+    title: "Identidade Visual Slim Pé",
+    category: "Identidade Visual",
     image: "logo.webp",
     contain: true,
     url: "https://slimpe.com",
