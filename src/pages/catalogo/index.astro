@@ -1,19 +1,40 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Section from "@/components/ui/Section.astro";
-import PageHeader from "@/components/PageHeader.astro";
 import Button from "@/components/ui/Button.astro";
 import ProductCard from "@/features/product/ProductCard.astro";
+import BackgroundDecorations from "@/components/ui/BackgroundDecorations.astro";
 import { container } from "@/container";
 import { SITE } from "@/shared/config/site";
 
 const products = await container.productRepository.getAll();
 const featured = products.filter((p) => p.featured);
-const all = products;
+const showcase = (featured.length ? featured : products).slice(0, 5);
+const gridProducts = products.filter(
+  (product) => !showcase.some((item) => item.slug === product.slug),
+);
+const heroProduct = showcase[0] ?? products[0];
 
 const title = `Catálogo | ${SITE.name}`;
 const description =
-  "Catálogo de produtos e serviços da Casa Nacoli em Lajeado/RS. Personalizados, impressos e design.";
+  "Catálogo de produtos e serviços da Casa Nacoli em Lajeado/RS. Uma vitrine de peças feitas com cuidado artesanal.";
+
+const processNotes = [
+  "Cada projeto começa com escuta, referência e leitura sensível do que precisa ser comunicado.",
+  "Materiais, cor e acabamento entram como parte da experiência, não apenas como detalhe técnico.",
+  "Mesmo quando nasce de uma referência do catálogo, a peça final continua sendo tratada como única.",
+];
+
+function resolveImage(src?: string) {
+  if (!src) return undefined;
+  return src.startsWith("/")
+    ? `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${src.slice(1)}`
+    : src;
+}
+
+function productImage(product: (typeof products)[number]) {
+  return resolveImage(product.images?.[0] ?? product.coverImage);
+}
 ---
 
 <BaseLayout
@@ -21,24 +42,286 @@ const description =
   description={description}
   canonicalPath={`${import.meta.env.BASE_URL}catalogo`}
 >
-  <PageHeader
-    title="Catálogo"
-    description="Produtos e serviços feitos com cuidado artesanal. Selecione um item para ver detalhes e pedir seu orçamento."
-  />
+  <Section
+    class="relative z-0 overflow-hidden pt-24 pb-20 md:pt-32 md:pb-24"
+    containerClass="max-w-screen-2xl"
+  >
+    <BackgroundDecorations />
 
-  <Section>
-    <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {all.map((p) => <ProductCard product={p} />)}
+    <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+      <div class="order-2 lg:order-1 lg:col-span-5 reveal reveal-up" style="--delay: 0.05s;">
+        <h1 class="mt-6 text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-6xl">
+          Peças feitas com tempo, textura e intenção.
+        </h1>
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-black/70">
+          <p>
+            Reunimos aqui alguns dos produtos que melhor traduzem o nosso jeito de fazer: presença
+            delicada, acabamento atento e escolhas que valorizam cada detalhe.
+          </p>
+          <p>
+            Navegue com calma, observe os materiais e use cada referência como ponto de partida para
+            imaginar a sua própria versão.
+          </p>
+        </div>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button href="#vitrine">Ver produtos</Button>
+          <Button href={`${import.meta.env.BASE_URL}contato`} variant="outline">
+            Falar sobre um projeto
+          </Button>
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2 lg:col-span-7 reveal reveal-up" style="--delay: 0.14s;">
+        <div
+          class="overflow-hidden rounded-[2rem] border border-white/70 bg-white p-3 shadow-2xl shadow-black/10 transition-transform duration-500 hover:-translate-y-1"
+        >
+          {
+            heroProduct?.coverImage ? (
+              <img
+                src={resolveImage(heroProduct.coverImage)}
+                alt={heroProduct.title}
+                class="aspect-[5/6] w-full rounded-[1.4rem] object-cover transition-transform duration-700 hover:scale-[1.02] sm:aspect-[4/3]"
+              />
+            ) : (
+              <div class="flex aspect-[5/6] w-full items-center justify-center rounded-[1.4rem] bg-[var(--cn-cream)] text-black/30 sm:aspect-[4/3]">
+                Sem imagem
+              </div>
+            )
+          }
+        </div>
+      </div>
     </div>
   </Section>
 
-  <Section theme="cream" class="text-center">
-    <h2 class="text-2xl font-semibold">Não encontrou o que procurava?</h2>
-    <p class="mt-4 text-black/70">
-      Trabalhamos com projetos especiais sob medida. Entre em contato e conte sua ideia.
+  <Section theme="cream" class="py-12 md:py-16" containerClass="max-w-screen-2xl">
+    <div class="rounded-[2rem] border border-black/8 bg-white/70 p-6 md:p-8 reveal reveal-up">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium uppercase tracking-[0.38em] text-[var(--cn-terracotta)]">
+          Como fazemos
+        </p>
+        <h2 class="mt-3 text-2xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-4xl">
+          Antes de chegar aqui, cada peça passa por um processo calmo e atento.
+        </h2>
+      </div>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {
+          processNotes.map((note, index) => (
+            <div
+              class="rounded-[1.5rem] border border-black/8 bg-[var(--cn-cream)]/60 p-5 text-sm leading-relaxed text-black/70 reveal reveal-up"
+              style={`--delay: ${0.08 + index * 0.08}s;`}
+            >
+              {note}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
+
+  <Section id="vitrine" containerClass="max-w-screen-2xl">
+    <div class="max-w-3xl reveal reveal-up">
+      <p class="text-sm font-medium uppercase tracking-[0.38em] text-[var(--cn-terracotta)]">
+        Vitrine
+      </p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+        Uma seleção para sentir de perto a linguagem da Casa Nacoli.
+      </h2>
+      <p class="mt-4 text-black/70">
+        Como no restante do site, a ideia aqui é deixar a imagem respirar, valorizar o texto e
+        conduzir a leitura com leveza, especialmente no celular.
+      </p>
+    </div>
+
+    <div class="mt-12 space-y-12 md:space-y-16">
+      {
+        showcase.map((product, index) => {
+          const reverse = index % 2 === 1;
+          const image = productImage(product);
+
+          return (
+            <article class="mx-auto grid max-w-5xl gap-5 md:gap-6 lg:grid-cols-12 lg:items-center">
+              <div
+                class:list={[
+                  "lg:col-span-6 reveal",
+                  reverse ? "lg:col-start-7" : "lg:col-start-1",
+                  reverse ? "reveal-right" : "reveal-left",
+                  reverse ? "lg:order-2" : "lg:order-1",
+                ]}
+                style={`--delay: ${0.04 + index * 0.03}s;`}
+              >
+                <a
+                  href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/catalogo/${product.slug}`}
+                  class="group block overflow-hidden rounded-[1.6rem] border border-black/8 bg-white p-2.5 shadow-lg shadow-black/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={product.title}
+                      class="aspect-[6/7] w-full rounded-[1.1rem] object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:aspect-[4/3]"
+                    />
+                  ) : (
+                    <div class="flex aspect-[6/7] w-full items-center justify-center rounded-[1.1rem] bg-[var(--cn-cream)] text-black/30 sm:aspect-[4/3]">
+                      Sem imagem
+                    </div>
+                  )}
+                </a>
+              </div>
+
+              <div
+                class:list={[
+                  "lg:col-span-4 reveal",
+                  reverse ? "lg:col-start-1" : "lg:col-start-8",
+                  reverse ? "reveal-left" : "reveal-right",
+                  reverse ? "lg:order-1" : "lg:order-2",
+                ]}
+                style={`--delay: ${0.1 + index * 0.03}s;`}
+              >
+                <div class="rounded-[1.4rem] border border-black/8 bg-[var(--cn-cream)]/50 p-5 transition-transform duration-500 hover:-translate-y-1 md:p-6">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--cn-terracotta)]">
+                    Produto em destaque
+                  </p>
+                  <h3 class="mt-3 text-2xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-[1.9rem]">
+                    {product.title}
+                  </h3>
+                  <p class="mt-3 text-sm leading-relaxed text-black/70">{product.summary}</p>
+
+                  {product.observations && product.observations.length > 0 && (
+                    <ul class="mt-4 space-y-1.5 text-sm leading-relaxed text-black/60">
+                      {product.observations.slice(0, 3).map((item) => (
+                        <li class="flex gap-2">
+                          <span class="text-[var(--cn-terracotta)]">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div class="mt-5 flex flex-col gap-2.5">
+                    <Button
+                      href={`${import.meta.env.BASE_URL}catalogo/${product.slug}`}
+                      class="w-full whitespace-nowrap"
+                    >
+                      Ver detalhes
+                    </Button>
+                    <Button
+                      href={`${import.meta.env.BASE_URL}contato`}
+                      variant="outline"
+                      class="w-full whitespace-nowrap"
+                    >
+                      Pedir orcamento
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <Section theme="white" containerClass="max-w-screen-2xl">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between reveal reveal-up">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium uppercase tracking-[0.38em] text-[var(--cn-ink)]">
+          Mais produtos
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+          Outras peças para seguir explorando com calma.
+        </h2>
+        <p class="mt-4 text-black/70">
+          A grade abaixo reúne outras opções do catálogo para quem quiser comparar formatos,
+          descobrir novas ideias e abrir cada produto com mais detalhe.
+        </p>
+      </div>
+      <Button href={`${import.meta.env.BASE_URL}contato`} variant="outline">
+        Quero ajuda para escolher
+      </Button>
+    </div>
+
+    <div
+      class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 reveal reveal-up"
+      style="--delay: 0.08s;"
+    >
+      {gridProducts.map((product) => <ProductCard key={product.slug} product={product} />)}
+    </div>
+  </Section>
+
+  <Section theme="cream" class="text-center" containerClass="max-w-5xl">
+    <p class="text-sm font-medium uppercase tracking-[0.45em] text-[var(--cn-ink)]">
+      Projeto sob medida
     </p>
-    <div class="mt-8">
-      <Button href={`${import.meta.env.BASE_URL}contato`} variant="outline">Fale conosco</Button>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
+      Se alguma referência chamou sua atenção, podemos desdobrar a ideia.
+    </h2>
+    <p class="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-black/70">
+      O catálogo é só o começo. A partir dele, ajustamos quantidade, material, acabamento e ritmo
+      visual para criar uma versão mais próxima do que você imagina.
+    </p>
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <Button href={`${import.meta.env.BASE_URL}contato`}>Agendar atendimento</Button>
+      <Button href="mailto:contato@casanacoli.com" variant="outline">Enviar briefing</Button>
     </div>
   </Section>
 </BaseLayout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+    transition-delay: var(--delay, 0s);
+    will-change: opacity, transform;
+  }
+
+  .reveal-left {
+    transform: translate3d(-18px, 0, 0);
+  }
+
+  .reveal-right {
+    transform: translate3d(18px, 0, 0);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const elements = document.querySelectorAll(".reveal");
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("reveal-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  })();
+</script>
