@@ -243,7 +243,7 @@ function productImage(product: (typeof products)[number]) {
       class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 reveal reveal-up"
       style="--delay: 0.08s;"
     >
-      {gridProducts.map((product) => <ProductCard key={product.slug} product={product} />)}
+      {gridProducts.map((product) => <ProductCard product={product} />)}
     </div>
   </Section>
 
