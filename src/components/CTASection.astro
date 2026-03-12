@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm.astro";
 
 <Section class="pb-24 md:pb-32">
   <div
-    class="mx-auto max-w-5xl rounded-3xl bg-[var(--cn-ink)] p-8 text-[var(--cn-cream)] md:p-12 lg:grid lg:grid-cols-2 lg:gap-16"
+    class="reveal reveal-up mx-auto max-w-5xl rounded-3xl bg-[var(--cn-ink)] p-8 text-[var(--cn-cream)] md:p-12 lg:grid lg:grid-cols-2 lg:gap-16"
   >
     <div class="flex flex-col justify-center">
       <h2 class="text-3xl font-semibold sm:text-3xl">Coloque sua ideia no papel</h2>
@@ -21,7 +21,9 @@ import ContactForm from "@/components/ContactForm.astro";
       </div>
     </div>
 
-    <div class="mt-10 lg:mt-0 rounded-2xl bg-white p-6 md:p-8">
+    <div
+      class="mt-10 rounded-2xl bg-white p-6 transition-transform duration-500 hover:-translate-y-1 lg:mt-0 md:p-8"
+    >
       <ContactForm />
     </div>
   </div>

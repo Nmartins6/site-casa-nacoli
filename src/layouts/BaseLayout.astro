@@ -86,3 +86,68 @@ const resolvedImage = new URL(image, SITE.url).toString();
     <WhatsAppFloatingButton />
   </body>
 </html>
+
+<style is:global>
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+    transition-delay: var(--delay, 0s);
+    will-change: opacity, transform;
+  }
+
+  .reveal-left {
+    transform: translate3d(-18px, 0, 0);
+  }
+
+  .reveal-right {
+    transform: translate3d(18px, 0, 0);
+  }
+
+  .reveal-up {
+    transform: translate3d(0, 18px, 0);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const elements = document.querySelectorAll(".reveal");
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("reveal-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  })();
+</script>

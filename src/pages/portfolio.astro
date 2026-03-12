@@ -125,12 +125,15 @@ const physicalProducts = [
 
   <!-- ── Gráfica & Impressão ─────────────────────────────── -->
   <Section containerClass="max-w-screen-xl">
-    <div class="mb-10 flex items-center gap-4">
+    <div class="reveal reveal-up mb-10 flex items-center gap-4">
       <h2 class="text-2xl font-semibold text-[var(--cn-ink)]">Gráfica &amp; Impressão</h2>
       <div class="h-px flex-1 bg-black/10"></div>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div
+      class="reveal reveal-up grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      style="--delay: 0.08s;"
+    >
       {
         physicalProducts.map((item) => (
           <div class="group relative aspect-square overflow-hidden rounded-xl bg-black/5 shadow-md">
@@ -153,14 +156,14 @@ const physicalProducts = [
 
   <!-- ── Digital & Design ───────────────────────────────── -->
   <Section theme="cream" containerClass="max-w-screen-xl">
-    <div class="mb-10 flex items-center gap-4">
+    <div class="reveal reveal-up mb-10 flex items-center gap-4">
       <h2 class="text-2xl font-semibold text-[var(--cn-ink)]">Digital &amp; Design</h2>
       <div class="h-px flex-1 bg-black/10"></div>
     </div>
 
     <!-- ── Subcategoria: Design ── -->
     <div>
-      <h3 class="mb-6 text-lg font-medium text-[var(--cn-ink)]/70">
+      <h3 class="reveal reveal-up mb-6 text-lg font-medium text-[var(--cn-ink)]/70">
         Artes Digitais & Identidades Visuais
       </h3>
       {
@@ -172,7 +175,10 @@ const physicalProducts = [
             </p>
           </div>
         ) : (
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div
+            class="reveal reveal-up grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            style="--delay: 0.08s;"
+          >
             {DIGITAL_PORTFOLIO_DESIGN.map((item) => (
               <div
                 class={`group relative aspect-square overflow-hidden rounded-xl shadow-md ${item.contain ? "bg-white" : "bg-black/5"}`}
@@ -220,7 +226,7 @@ const physicalProducts = [
 
     <!-- ── Subcategoria: Sites ── -->
     <div class="mb-12 mt-12">
-      <h3 class="mb-6 text-lg font-medium text-[var(--cn-ink)]/70">Sites</h3>
+      <h3 class="reveal reveal-up mb-6 text-lg font-medium text-[var(--cn-ink)]/70">Sites</h3>
       {
         DIGITAL_PORTFOLIO_SITES.length === 0 ? (
           <div class="flex min-h-36 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-black/15 text-center text-black/40">
@@ -230,7 +236,10 @@ const physicalProducts = [
             </p>
           </div>
         ) : (
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="reveal reveal-up grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            style="--delay: 0.08s;"
+          >
             {DIGITAL_PORTFOLIO_SITES.map((item) => (
               <div
                 class={`group relative aspect-video overflow-hidden rounded-xl shadow-md ${item.contain ? "bg-white" : "bg-black/5"}`}
@@ -277,7 +286,7 @@ const physicalProducts = [
     </div>
   </Section>
 
-  <div class="mt-4 pb-24 text-center">
+  <div class="reveal reveal-up mt-4 pb-24 text-center">
     <p class="mb-6 text-black/70">Veja mais do nosso dia a dia no Instagram.</p>
     <Button href={SITE.social.instagram} variant="outline" target="_blank" rel="noreferrer">
       Seguir @casanacoli

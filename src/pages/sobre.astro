@@ -19,8 +19,10 @@ const description =
 
   <Section containerClass="max-w-screen-2xl">
     <div class="grid gap-16 lg:grid-cols-12 lg:items-center">
-      <div class="lg:col-span-7">
-        <div class="overflow-hidden rounded-3xl shadow-2xl shadow-black/10">
+      <div class="reveal reveal-left lg:col-span-7">
+        <div
+          class="overflow-hidden rounded-3xl shadow-2xl shadow-black/10 transition-transform duration-500 hover:-translate-y-1"
+        >
           <img
             src={`${import.meta.env.BASE_URL}images/products/papelaria-personalizada/papelaria-personalizada.png`}
             alt="Processo Artesanal Casa Nacoli"
@@ -28,7 +30,7 @@ const description =
           />
         </div>
       </div>
-      <div class="lg:col-span-5 lg:pl-8">
+      <div class="reveal reveal-right lg:col-span-5 lg:pl-8" style="--delay: 0.08s;">
         <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
           Artesanal e Independente
         </h2>
@@ -53,7 +55,7 @@ const description =
   </Section>
 
   <Section theme="cream" containerClass="max-w-screen-2xl">
-    <div class="mb-20 text-center">
+    <div class="reveal reveal-up mb-20 text-center">
       <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
         O Processo Artesanal
       </h2>
@@ -81,8 +83,11 @@ const description =
             desc: "O toque final é dado à mão: cortes precisos, colagem delicada e embalagem com carinho.",
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-8"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5zM16 8L2 22M17.5 15H9"/></svg>`,
           },
-        ].map((step) => (
-          <div class="group relative overflow-hidden rounded-3xl bg-white p-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        ].map((step, index) => (
+          <div
+            class="group relative reveal reveal-up overflow-hidden rounded-3xl bg-white p-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            style={`--delay: ${0.05 + index * 0.06}s;`}
+          >
             <div class="flex size-16 items-center justify-center rounded-2xl bg-[var(--cn-sky)]/10 text-[var(--cn-ink)] transition-colors group-hover:bg-[var(--cn-terracotta)] group-hover:text-white">
               <Fragment set:html={step.icon} />
             </div>
@@ -99,7 +104,9 @@ const description =
       <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
         Valorizamos o tempo e a calma
       </h2>
-      <div class="mt-10 max-w-4xl mx-auto space-y-8 text-xl text-black/70 leading-relaxed">
+      <div
+        class="reveal reveal-up mt-10 max-w-4xl mx-auto space-y-8 text-xl text-black/70 leading-relaxed"
+      >
         <p>
           Acreditamos que o que é feito devagar tem mais valor. Cada projeto é desenvolvido com
           atenção individual, garantindo que o resultado final reflita a essência de quem o
@@ -111,7 +118,10 @@ const description =
         </p>
       </div>
 
-      <div class="mt-16 overflow-hidden rounded-3xl shadow-2xl">
+      <div
+        class="reveal reveal-up mt-16 overflow-hidden rounded-3xl shadow-2xl"
+        style="--delay: 0.08s;"
+      >
         <img
           src={`${import.meta.env.BASE_URL}images/products/brindes-corporativos/brindes-corporativos-1.webp`}
           alt="Detalhes que importam"
@@ -122,7 +132,7 @@ const description =
   </Section>
 
   <Section theme="white" class="pb-32" containerClass="max-w-screen-2xl">
-    <div class="mb-20 text-center">
+    <div class="reveal reveal-up mb-20 text-center">
       <h2 class="text-4xl font-semibold tracking-tight text-[var(--cn-ink)] md:text-5xl">
         Nossos Valores
       </h2>
@@ -146,8 +156,11 @@ const description =
             desc: "Estética que comunica a essência da sua marca ou momento especial.",
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`,
           },
-        ].map((valor) => (
-          <div class="flex flex-col items-center text-center">
+        ].map((valor, index) => (
+          <div
+            class="flex flex-col reveal reveal-up items-center text-center"
+            style={`--delay: ${0.05 + index * 0.06}s;`}
+          >
             <div class="flex size-20 items-center justify-center rounded-3xl bg-[var(--cn-cream)] text-[var(--cn-terracotta)] shadow-lg shadow-[var(--cn-terracotta)]/5">
               <Fragment set:html={valor.icon} />
             </div>

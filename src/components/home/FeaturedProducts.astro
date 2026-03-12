@@ -10,7 +10,7 @@ const featuredProducts = await container.productRepository.getFeatured();
 {
   featuredProducts.length > 0 && (
     <Section>
-      <div class="flex items-end justify-between">
+      <div class="reveal reveal-up flex items-end justify-between">
         <div>
           <h2 class="text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
             Nossos Destaques
@@ -26,7 +26,7 @@ const featuredProducts = await container.productRepository.getFeatured();
       </div>
 
       {/* Wrapper clips overflow but uses padding so side cards peek */}
-      <div class="carousel-root mt-10" id="carousel-root">
+      <div class="carousel-root reveal reveal-up mt-10" id="carousel-root" style="--delay: 0.08s;">
         <div class="carousel-track" id="carousel-track">
           {featuredProducts.map((p, i) => (
             <div class="carousel-slide" data-index={i}>
@@ -36,7 +36,7 @@ const featuredProducts = await container.productRepository.getFeatured();
         </div>
       </div>
 
-      <div class="carousel-controls">
+      <div class="carousel-controls reveal reveal-up" style="--delay: 0.14s;">
         <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const featuredProducts = await container.productRepository.getFeatured();
         </button>
       </div>
 
-      <div class="mt-8 text-center sm:hidden">
+      <div class="reveal reveal-up mt-8 text-center sm:hidden" style="--delay: 0.18s;">
         <Button href={`${import.meta.env.BASE_URL}catalogo`} variant="outline">
           Ver catálogo completo
         </Button>

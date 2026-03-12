@@ -27,10 +27,21 @@ const {
   <BackgroundDecorations />
 
   <div class="mx-auto max-w-4xl text-center">
-    <h1 class="text-4xl font-bold tracking-tight text-[var(--cn-ink)] md:text-5xl lg:text-6xl">
+    <h1
+      class="reveal reveal-up text-4xl font-bold tracking-tight text-[var(--cn-ink)] md:text-5xl lg:text-6xl"
+    >
       {title}
     </h1>
-    {description && <p class="mx-auto mt-6 max-w-2xl text-lg text-black/70">{description}</p>}
+    {
+      description && (
+        <p
+          class="reveal reveal-up mx-auto mt-6 max-w-2xl text-lg text-black/70"
+          style="--delay: 0.08s;"
+        >
+          {description}
+        </p>
+      )
+    }
     <slot />
   </div>
 

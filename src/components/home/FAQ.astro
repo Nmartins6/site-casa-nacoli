@@ -5,13 +5,18 @@ import { FAQ_ITEMS } from "@/shared/data/constants";
 
 <Section theme="cream">
   <div class="mx-auto max-w-3xl">
-    <h2 class="text-center text-3xl font-semibold tracking-tight text-[var(--cn-ink)]">
+    <h2
+      class="reveal reveal-up text-center text-3xl font-semibold tracking-tight text-[var(--cn-ink)]"
+    >
       Dúvidas Frequentes
     </h2>
     <div class="mt-12 space-y-3">
       {
-        FAQ_ITEMS.map((faq) => (
-          <details class="faq-item group rounded-2xl border border-black/5 bg-white">
+        FAQ_ITEMS.map((faq, index) => (
+          <details
+            class="faq-item group reveal reveal-up rounded-2xl border border-black/5 bg-white"
+            style={`--delay: ${0.05 + index * 0.05}s;`}
+          >
             <summary class="faq-summary flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5">
               <h3 class="font-medium text-[var(--cn-ink)]">{faq.q}</h3>
               <span class="faq-icon flex-shrink-0 text-[var(--cn-terracotta)]">

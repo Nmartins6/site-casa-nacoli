@@ -48,7 +48,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 >
   <Section class="relative z-0 overflow-hidden pt-24 md:pt-32">
     <BackgroundDecorations />
-    <nav class="flex items-center text-sm text-black/60">
+    <nav class="reveal reveal-up flex items-center text-sm text-black/60">
       <a href={import.meta.env.BASE_URL} class="hover:text-[var(--cn-ink)]">Início</a>
       <span class="mx-2">/</span>
       <a href={`${import.meta.env.BASE_URL}catalogo`} class="hover:text-[var(--cn-ink)]">Catálogo</a
@@ -58,7 +58,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
     </nav>
 
     <div class="mt-8 grid gap-12 lg:grid-cols-2">
-      <div>
+      <div class="reveal reveal-left">
         <ProductGallery
           client:load
           images={[product.coverImage, ...(product.images || [])].filter(
@@ -68,7 +68,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
         />
       </div>
 
-      <div>
+      <div class="reveal reveal-right" style="--delay: 0.08s;">
         <h1 class="text-3xl font-bold tracking-tight text-[var(--cn-ink)] md:text-4xl">
           {product.title}
         </h1>
@@ -87,7 +87,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 
         {
           product.observations && product.observations.length > 0 && (
-            <div class="mt-10 border-t border-black/8 pt-6">
+            <div class="reveal reveal-up mt-10 border-t border-black/8 pt-6">
               <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/35 mb-3">
                 Observações
               </p>
@@ -113,7 +113,7 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
 
         {
           Content && (
-            <div class="mt-10 border-t border-black/8 pt-6 text-sm text-black/60 leading-relaxed [&_h1]:hidden [&_h2]:hidden [&_h3]:hidden [&_p]:mt-0 [&_p+p]:mt-2 [&_a]:text-[var(--cn-terracotta)] [&_a:hover]:underline [&_strong]:text-black/70 [&_strong]:font-medium">
+            <div class="reveal reveal-up mt-10 border-t border-black/8 pt-6 text-sm text-black/60 leading-relaxed [&_h1]:hidden [&_h2]:hidden [&_h3]:hidden [&_p]:mt-0 [&_p+p]:mt-2 [&_a]:text-[var(--cn-terracotta)] [&_a:hover]:underline [&_strong]:text-black/70 [&_strong]:font-medium">
               <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/35 mb-3">
                 Sobre o produto
               </p>
@@ -130,8 +130,11 @@ const whatsappHref = buildWhatsAppLink(baseMessage);
   {
     relatedProducts.length > 0 && (
       <Section theme="white" class="border-t border-black/5">
-        <h2 class="text-xl font-semibold text-[var(--cn-ink)]">Veja também</h2>
-        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 class="reveal reveal-up text-xl font-semibold text-[var(--cn-ink)]">Veja também</h2>
+        <div
+          class="reveal reveal-up mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          style="--delay: 0.08s;"
+        >
           {relatedProducts.map((p) => (
             <a
               href={`${import.meta.env.BASE_URL}catalogo/${p.slug}`}
